@@ -1112,7 +1112,7 @@
 	<irrlicht.h>
 	"Config.h"
 
-1397340663 source:/home/henri/Documents/Projects/IrrGame/src/Config.cpp
+1397341079 source:/home/henri/Documents/Projects/IrrGame/src/Config.cpp
 	"Config.h"
 
 1397341074 /home/henri/Documents/Projects/IrrGame/include/Config.h
@@ -1134,16 +1134,17 @@
 1397339571 source:/home/henri/Documents/Projects/IrrGame/src/FileStream.cpp
 	"FileStream.h"
 
-1397338711 source:/home/henri/Documents/Projects/IrrGame/src/Game.cpp
+1397343074 source:/home/henri/Documents/Projects/IrrGame/src/Game.cpp
 	"Game.h"
 
 1397337866 source:/home/henri/Documents/Projects/IrrGame/src/main.cpp
 	"Game.h"
 
-1397340890 /home/henri/Documents/Projects/IrrGame/include/Game.h
+1397342464 /home/henri/Documents/Projects/IrrGame/include/Game.h
 	<irrlicht.h>
 	"Config.h"
 	"Log.h"
+	"InputHandler.h"
 
 1352128454 /home/henri/Documents/Engines/irrlicht-1.8.1/include/irrlicht.h
 	"IrrCompileConfig.h"
@@ -2149,4 +2150,10 @@
 
 1397339640 source:/home/henri/Documents/Projects/IrrGame/src/Log.cpp
 	"Log.h"
+
+1397342614 /home/henri/Documents/Projects/IrrGame/include/InputHandler.h
+	<irrlicht.h>
+
+1397342642 source:/home/henri/Documents/Projects/IrrGame/src/InputHandler.cpp
+	"InputHandler.h"
 

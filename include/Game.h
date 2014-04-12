@@ -11,6 +11,7 @@
 
 #include "Config.h"
 #include "Log.h"
+#include "InputHandler.h"
 
 // Irrilicht namespace and subnamespaces
 using namespace irr;
@@ -54,6 +55,7 @@ namespace IrrGame
         private:
             void Init();
             GameState state;
+            InputHandler keyboard;
     };
 }
 #endif // IRRGAME_H

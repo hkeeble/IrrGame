@@ -22,7 +22,7 @@ namespace IrrGame
         Log("Initializing IrrGame Object...");
 
         iDevice = createDevice( video::EDT_OPENGL, dimension2d<u32>(cfg.WindowBounds().width, cfg.WindowBounds().height), 16,
-            false, false, false, 0);
+            false, false, false, &keyboard);
 
         if(iDevice == nullptr)
         {
@@ -32,9 +32,33 @@ namespace IrrGame
 
         iDevice->setWindowCaption((wchar_t*)cfg.WindowCaption().c_str());
 
+        // Obtain pointers to useful objects
         iVideoDriver = iDevice->getVideoDriver();
         iSceneManager = iDevice->getSceneManager();
         iGUIEnv = iDevice->getGUIEnvironment();
+
+        // Initialize the input handler
+        keyboard = InputHandler();
+
+        // Add test mesh
+        IAnimatedMesh* mesh = iSceneManager->getMesh("data/sydney.md2");
+        if(!mesh)
+        {
+            Log("Error loading test mesh!");
+            state = ERR_STATE;
+        }
+        IAnimatedMeshSceneNode* node = iSceneManager->addAnimatedMeshSceneNode(mesh);
+
+        if (node)
+        {
+            node->setMaterialFlag(EMF_LIGHTING, false);
+            node->setMD2Animation(scene::EMAT_STAND);
+            node->setMaterialTexture( 0, iVideoDriver->getTexture("data/sydney.bmp") );
+        }
+
+        // Initialize a camera
+        iSceneManager->addCameraSceneNodeFPS();
+        iDevice->getCursorControl()->setVisible(false);
     }
 
     const GameState& Game::GetState() const
@@ -57,6 +81,9 @@ namespace IrrGame
         while(state == RUNNING)
         {
             if(!iDevice->run())
+                state = EXIT;
+
+            if(keyboard.IsKeyDown(KEY_ESCAPE))
                 state = EXIT;
 
             iVideoDriver->beginScene(true, true, SColor(255,100,101,140));
