@@ -13,7 +13,7 @@ namespace IrrGame
         stream = FileStream(cfgFName);
 
         this->windowBounds = Rectangle(0,0,std::stoi(ReadParam(WIDTH)),std::stoi(ReadParam(HEIGHT)));
-        this->windowCaption = "IrrGame";
+        this->windowCaption = L"IrrGame";
     }
 
     Config::~Config()
@@ -27,7 +27,7 @@ namespace IrrGame
         return windowBounds;
     }
 
-    const std::string& Config::WindowCaption() const
+    const std::wstring& Config::WindowCaption() const
     {
         return windowCaption;
     }
@@ -38,7 +38,7 @@ namespace IrrGame
         windowBounds.height = height;
     }
 
-    void Config::SetWindowCaption(const std::string& caption)
+    void Config::SetWindowCaption(const std::wstring& caption)
     {
         windowCaption = caption;
     }

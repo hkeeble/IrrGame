@@ -25,17 +25,14 @@ namespace IrrGame
             ~Config();
 
             const Rectangle& WindowBounds() const;
-            const std::string& WindowCaption() const;
+            const std::wstring& WindowCaption() const;
 
             void SetWindowBounds(int width, int height);
-            void SetWindowCaption(const std::string& caption);
-
-            void Refresh();
-            void Write() const;
+            void SetWindowCaption(const std::wstring& caption);
 
         private:
             Rectangle windowBounds;
-            std::string windowCaption;
+            std::wstring windowCaption;
             const std::string cfgFName;
             FileStream stream;
 

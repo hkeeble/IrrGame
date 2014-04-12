@@ -30,6 +30,8 @@ namespace IrrGame
             SetState(ERR_STATE);
         }
 
+        iDevice->setWindowCaption((wchar_t*)cfg.WindowCaption().c_str());
+
         iVideoDriver = iDevice->getVideoDriver();
         iSceneManager = iDevice->getSceneManager();
         iGUIEnv = iDevice->getGUIEnvironment();

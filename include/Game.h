@@ -20,6 +20,9 @@ using namespace video;
 using namespace io;
 using namespace gui;
 
+#define IRRGAME_MAJOR_VER 0
+#define IRRGAME_MINOR_VER 1
+
 namespace IrrGame
 {
     enum GameState
@@ -47,6 +50,7 @@ namespace IrrGame
             void SetState(const GameState& state);
 
             void errFatal(const std::string msg);
+
         private:
             void Init();
             GameState state;
