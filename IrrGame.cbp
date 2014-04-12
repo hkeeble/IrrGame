@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="IrrGame" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug-Win">
+				<Option platforms="Windows;" />
+				<Option output="build/win/Debug/IrrGame" prefix_auto="1" extension_auto="1" />
+				<Option object_output="intermediate/win/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release-Win">
+				<Option platforms="Windows;" />
+				<Option output="build/win/Release/IrrGame" prefix_auto="1" extension_auto="1" />
+				<Option object_output="intermediate/win/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Release-Linux">
+				<Option platforms="Windows;" />
+				<Option output="build/linux/Release/IrrGame" prefix_auto="1" extension_auto="1" />
+				<Option object_output="intermediate/linux/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Debug-Linux">
+				<Option platforms="Windows;" />
+				<Option output="build/linux/Release/IrrGame" prefix_auto="1" extension_auto="1" />
+				<Option object_output="intermediate/linux/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add directory="C:/Users/Henri/Documents/Projects/IrrGame/include/" />
+			<Add directory="C:/Users/Henri/Documents/Coding Resources/Engines/Irrlicht-1.8.1/irrlicht-1.8.1/include" />
+		</Compiler>
+		<Linker>
+			<Add library="Irrlicht" />
+			<Add directory="../../Coding Resources/Engines/Irrlicht-1.8.1/irrlicht-1.8.1/lib/Win32-gcc" />
+		</Linker>
+		<Unit filename="include/Config.h" />
+		<Unit filename="include/FileStream.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/Shapes.h" />
+		<Unit filename="include/uncopyable.h" />
+		<Unit filename="src/Config.cpp" />
+		<Unit filename="src/FileStream.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Shapes.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
