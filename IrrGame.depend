@@ -1,16 +1,19 @@
 # depslib dependency file v1.0
-1397330187 source:c:\users\henri\documents\projects\irrgame\src\config.cpp
+1397416196 source:c:\users\henri\documents\projects\irrgame\src\config.cpp
 	"Config.h"
 
 1397301871 
 
-1397331219 c:\users\henri\documents\projects\irrgame\include\\config.h
+1397412915 c:\users\henri\documents\projects\irrgame\include\\config.h
 	<string>
 	"Shapes.h"
+	"FileStream.h"
+	"stringext.h"
+	"Log.h"
 
-1397330158 c:\users\henri\documents\projects\irrgame\include\\shapes.h
+1397412915 c:\users\henri\documents\projects\irrgame\include\\shapes.h
 
-1397331098 source:c:\users\henri\documents\projects\irrgame\src\filestream.cpp
+1397412916 source:c:\users\henri\documents\projects\irrgame\src\filestream.cpp
 	"FileStream.h"
 
 1397331098 m.h"
@@ -24,7 +27,7 @@
 
 1397304577 source:c:\users\henri\documents\projects\irrgame\src\irrgame.cpp
 
-1397330158 source:c:\users\henri\documents\projects\irrgame\src\main.cpp
+1397412916 source:c:\users\henri\documents\projects\irrgame\src\main.cpp
 	"Game.h"
 
 1397304210 c:\users\henri\documents\projects\irrgame\include\\irrgame.h
@@ -1093,24 +1096,28 @@
 
 1397301871 ver.h"
 
-1397330173 source:c:\users\henri\documents\projects\irrgame\src\shapes.cpp
+1397412916 source:c:\users\henri\documents\projects\irrgame\src\shapes.cpp
 	"Shapes.h"
 
 1397329689 c:\users\henri\documents\projects\irrgame\include\uncopyable.h
 
-1397330928 c:\users\henri\documents\projects\irrgame\include\\filestream.h
+1397412915 c:\users\henri\documents\projects\irrgame\include\\filestream.h
 	<fstream>
 	<string>
 	<iostream>
-	"Uncopyable.h"
 
 1397330158 c:\users\henri\documents\projects\irrgame\include\\uncopyable.h
 
-1397331115 source:c:\users\henri\documents\projects\irrgame\src\game.cpp
+1397415447 source:c:\users\henri\documents\projects\irrgame\src\game.cpp
+	"Game.h"
 
-1397331111 c:\users\henri\documents\projects\irrgame\include\\game.h
+1397415462 c:\users\henri\documents\projects\irrgame\include\\game.h
 	<irrlicht.h>
 	"Config.h"
+	"Log.h"
+	"InputHandler.h"
+	"World.h"
+	"Voxel.h"
 
 1397341079 source:/home/henri/Documents/Projects/IrrGame/src/Config.cpp
 	"Config.h"
@@ -2155,5 +2162,39 @@
 	<irrlicht.h>
 
 1397342642 source:/home/henri/Documents/Projects/IrrGame/src/InputHandler.cpp
+	"InputHandler.h"
+
+1397412915 c:\users\henri\documents\projects\irrgame\include\\stringext.h
+	<string>
+	<sstream>
+	<vector>
+	<iostream>
+	"Log.h"
+
+1397412915 c:\users\henri\documents\projects\irrgame\include\\log.h
+	<string>
+	"FileStream.h"
+
+1397412915 c:\users\henri\documents\projects\irrgame\include\\inputhandler.h
+	<irrlicht.h>
+
+1397414761 c:\users\henri\documents\projects\irrgame\include\\world.h
+	<irrlicht.h>
+	"Log.h"
+
+1397415477 source:c:\users\henri\documents\projects\irrgame\src\voxel.cpp
+	"Voxel.h"
+
+1397415376 c:\users\henri\documents\projects\irrgame\include\\voxel.h
+	<irrlicht.h>
+	"Shapes.h"
+
+1397415276 source:c:\users\henri\documents\projects\irrgame\src\world.cpp
+	"World.h"
+
+1397412916 source:c:\users\henri\documents\projects\irrgame\src\log.cpp
+	"Log.h"
+
+1397412916 source:c:\users\henri\documents\projects\irrgame\src\inputhandler.cpp
 	"InputHandler.h"
 

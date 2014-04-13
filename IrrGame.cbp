@@ -12,10 +12,17 @@
 				<Option object_output="intermediate/win/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option projectCompilerOptionsRelation="1" />
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+					<Add directory="../../Coding Resources/Engines/Irrlicht-1.8.1/irrlicht-1.8.1/include" />
 				</Compiler>
+				<Linker>
+					<Add library="Irrlicht" />
+					<Add directory="lib/Win32" />
+				</Linker>
 			</Target>
 			<Target title="Release-Win">
 				<Option platforms="Windows;" />
@@ -25,13 +32,17 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+					<Add directory="../../Coding Resources/Engines/Irrlicht-1.8.1/irrlicht-1.8.1/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="Irrlicht" />
+					<Add directory="lib/Win32" />
 				</Linker>
 			</Target>
 			<Target title="Release-Linux">
-				<Option platforms="Windows;" />
+				<Option platforms="Unix;" />
 				<Option output="build/linux/Release/IrrGame" prefix_auto="1" extension_auto="1" />
 				<Option object_output="intermediate/linux/Release/" />
 				<Option type="1" />
@@ -44,7 +55,7 @@
 				</Linker>
 			</Target>
 			<Target title="Debug-Linux">
-				<Option platforms="Windows;" />
+				<Option platforms="Unix;" />
 				<Option output="build/linux/Release/IrrGame" prefix_auto="1" extension_auto="1" />
 				<Option object_output="intermediate/linux/Release/" />
 				<Option type="1" />
@@ -70,12 +81,20 @@
 		<Unit filename="include/Config.h" />
 		<Unit filename="include/FileStream.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/InputHandler.h" />
+		<Unit filename="include/Log.h" />
 		<Unit filename="include/Shapes.h" />
+		<Unit filename="include/Voxel.h" />
+		<Unit filename="include/World.h" />
 		<Unit filename="include/uncopyable.h" />
 		<Unit filename="src/Config.cpp" />
 		<Unit filename="src/FileStream.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/InputHandler.cpp" />
+		<Unit filename="src/Log.cpp" />
 		<Unit filename="src/Shapes.cpp" />
+		<Unit filename="src/Voxel.cpp" />
+		<Unit filename="src/World.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<DoxyBlocks>

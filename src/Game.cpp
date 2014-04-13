@@ -13,7 +13,6 @@ namespace IrrGame
         state = READY;
         iDevice = nullptr;
         iVideoDriver = nullptr;
-        iSceneManager = nullptr;
         iGUIEnv = nullptr;
     }
 
@@ -34,30 +33,16 @@ namespace IrrGame
 
         // Obtain pointers to useful objects
         iVideoDriver = iDevice->getVideoDriver();
-        iSceneManager = iDevice->getSceneManager();
         iGUIEnv = iDevice->getGUIEnvironment();
 
         // Initialize the input handler
         keyboard = InputHandler();
 
-        // Add test mesh
-        IAnimatedMesh* mesh = iSceneManager->getMesh("data/sydney.md2");
-        if(!mesh)
-        {
-            Log("Error loading test mesh!");
-            state = ERR_STATE;
-        }
-        IAnimatedMeshSceneNode* node = iSceneManager->addAnimatedMeshSceneNode(mesh);
+        // Initialize the game world
+        world = World(iDevice->getSceneManager());
+        world.AddMeshNode(Voxel(Cube()).GetMesh());
 
-        if (node)
-        {
-            node->setMaterialFlag(EMF_LIGHTING, false);
-            node->setMD2Animation(scene::EMAT_STAND);
-            node->setMaterialTexture( 0, iVideoDriver->getTexture("data/sydney.bmp") );
-        }
-
-        // Initialize a camera
-        iSceneManager->addCameraSceneNodeFPS();
+        // Remove cursor
         iDevice->getCursorControl()->setVisible(false);
     }
 
@@ -88,7 +73,7 @@ namespace IrrGame
 
             iVideoDriver->beginScene(true, true, SColor(255,100,101,140));
 
-            iSceneManager->drawAll();
+            world.Render();
             iGUIEnv->drawAll();
 
             iVideoDriver->endScene();
@@ -113,8 +98,6 @@ namespace IrrGame
             delete iDevice;
         if(iVideoDriver)
             delete iVideoDriver;
-        if(iSceneManager)
-            delete iSceneManager;
         if(iGUIEnv)
             delete iGUIEnv;
     }

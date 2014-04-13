@@ -12,6 +12,8 @@
 #include "Config.h"
 #include "Log.h"
 #include "InputHandler.h"
+#include "World.h"
+#include "Voxel.h"
 
 // Irrilicht namespace and subnamespaces
 using namespace irr;
@@ -44,7 +46,6 @@ namespace IrrGame
             Config cfg;
             IrrlichtDevice* iDevice;
             IVideoDriver* iVideoDriver;
-            ISceneManager* iSceneManager;
             IGUIEnvironment* iGUIEnv;
 
             const GameState& GetState() const;
@@ -56,6 +57,7 @@ namespace IrrGame
             void Init();
             GameState state;
             InputHandler keyboard;
+            World world; /*!< The game world currently loaded. */
     };
 }
 #endif // IRRGAME_H
