@@ -1,0 +1,56 @@
+# ------------------------------------------------------------------------------------------#
+# THIS MAKEFILE IS PART OF IRRGAME.															#
+#																							#
+# Author: 		Henri Keeble																#
+# Date Created:	4/4/2014																	#
+# Usage: 		Use this configuration file to configure the makefile for your build		#
+#				environment.																#
+#-------------------------------------------------------------------------------------------#
+
+# COMPILER
+CC=g++
+
+# COMPILER FLAGS
+CCFLAGS=-std=c++11
+
+# SOURCE AND INTERMEDIATE DIRECTORIES
+SRC_DIR=src/
+INT_DIR=intermediate/
+
+# DIRECTORY TO USE FOR TARGET
+TRG_DIR=$(MAKECMDGOALS)
+
+# EXECUTABLE NAME
+EXEC=IrrGame
+
+# LIBRARY PATHS
+IRRLICHT_HOME=../../Engines/irrlicht-1.8.1
+
+# LIBRARY DEPENDENCIES
+LIB_DIRS=-Llib/
+LIBS=-lIrrlicht -lGL -lXcursor -lXxf86vm -lX11
+ 
+# INCLUDE DIRECTORIES
+INCL_DIR=-Iinclude/ -I$(IRRLICHT_HOME)/include/
+
+# DETECT PREPROCESSOR DEFINITIONS
+ifeq ($(TRG_DIR), debug)
+	PRP_DIR = -D_DEBUG
+else
+	PRP_DIR = -DNDEBUG
+endif
+
+# COPY TARGET NAME
+COPY_DATA=copydata
+
+# DETECT OPERATING SYSTEM FOR BUILD AND INTERMEDIATE DIRECTORIES
+ifeq ($(OS), Windows_NT)
+	BLD_DIR=build/windows/$(TRG_DIR)
+	INT_DIR=obj/windows/$(TRG_DIR)
+else
+	BLD_DIR=build/unix/$(TRG_DIR)
+	INT_DIR=obj/unix/$(TRG_DIR)
+endif
+
+# OBJECTS - CONSTRUCT THESE FROM CPP FILES IN SRC
+OBJECTS=$(subst $(SRC_DIR), $(INT_DIR), $(patsubst %.cpp,%.o,$(wildcard $(SRC_DIR)/*.cpp)))

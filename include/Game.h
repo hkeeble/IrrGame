@@ -53,6 +53,8 @@ namespace IrrGame
 
             void errFatal(const std::string msg);
 
+			void FreeIDevice();
+
         private:
             void Init();
             GameState state;

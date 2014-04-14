@@ -84,8 +84,14 @@ namespace IrrGame
         else
             Log("IrrGame exitted cleanly.");
 
-        iDevice->drop();
+        FreeIDevice();
     }
+
+	void Game::FreeIDevice()
+	{
+		iDevice->drop();
+		iDevice = nullptr;
+	}
 
     void Game::errFatal(const std::string msg)
     {
@@ -94,11 +100,7 @@ namespace IrrGame
 
     Game::~Game()
     {
-        if(iDevice)
-            delete iDevice;
-        if(iVideoDriver)
-            delete iVideoDriver;
-        if(iGUIEnv)
-            delete iGUIEnv;
+ 		if(iDevice)
+ 			FreeIDevice();   
     }
 }

@@ -40,8 +40,8 @@ namespace IrrGame
     }
 
     void World::AddMeshNode(SMesh* mesh)
-    {
-        scene->addMeshSceneNode(mesh);
+    { 
+    	scene->addMeshSceneNode(mesh);
     }
 
     void World::Render()
