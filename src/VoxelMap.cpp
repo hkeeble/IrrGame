@@ -69,18 +69,18 @@ namespace IrrGame
  	
  	void VoxelMap::ClearMap()
  	{
- 		/*
+ 		
  		for(int x = 0; x < voxels.size(); x++)
  		{
- 			voxels[x] = VoxelType::GROUND;
+ 			voxels[x][0][0] = VoxelType::GROUND;
  			for(int y = 0; y < voxels[x].size(); y++)
  			{
- 				voxels[x][y] = VoxelType::GROUND;
+ 				voxels[x][y][0] = VoxelType::GROUND;
  				for(int z = 0; z < voxels[x][y].size(); z++)
  					voxels[x][y][z] = VoxelType::GROUND;
 			}
 		}
-		*/
+		
 	}
  	
  	VoxelMap::~VoxelMap()
