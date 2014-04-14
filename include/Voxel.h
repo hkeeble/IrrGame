@@ -7,6 +7,7 @@
 #define VOXEL_H
 
 #include <irrlicht.h>
+
 #include "Shapes.h"
 
 using namespace irr;

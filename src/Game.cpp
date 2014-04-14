@@ -39,9 +39,8 @@ namespace IrrGame
         keyboard = InputHandler();
 
         // Initialize the game world
-        world = World(iDevice->getSceneManager());
-        world.AddMeshNode(Voxel(Cube()).GetMesh());
-
+        world = World(iDevice->getSceneManager(), iVideoDriver, 10, 10, 10);
+        
         // Remove cursor
         iDevice->getCursorControl()->setVisible(false);
     }

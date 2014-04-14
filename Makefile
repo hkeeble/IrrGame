@@ -27,8 +27,12 @@ release: $(COPY_DATA) $(OBJECTS)
 clean:
 	rm -r obj/unix/debug/*.o
 	rm -r obj/unix/release/*.o
+	rm -r build/unix/debug/data/*
+	rm -r build/unix/release/data/*
 	rm -r obj/windows/debug/*.o
 	rm -r obj/windows/release/*.o
+	rm -r build/windows/debug/data/*
+	rm -r build/windows/release/data/*
 
 # ----- PATTERN RULE FOR .CPP TO .O -----
 $(INT_DIR)/%.o : $(SRC_DIR)/%.cpp
