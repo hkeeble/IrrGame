@@ -19,7 +19,6 @@ namespace IrrGame
     {
         scene = nullptr;
         driver = nullptr;
-        voxelMap = VoxelMap();
     }
 
     World::~World()
@@ -32,9 +31,6 @@ namespace IrrGame
         this->scene = scene;
         this->driver = driver;
 
-		voxelMap = VoxelMap(width, height, depth);
-		voxelMap.CreateFlatGround();
-
 		// Add an animated mesh
         IAnimatedMeshSceneNode* node = AddAnimatedMesh("Marvin.md2", "Marvin.jpg");
 
@@ -42,7 +38,8 @@ namespace IrrGame
         if (node)
         {
             node->setMaterialFlag(EMF_LIGHTING, false);
-            node->setMD2Animation(scene::EMAT_STAND);
+            node->setMD2Animation(scene::EMAT_RUN);
+            node->setAnimationSpeed(10);
         }
 
         // Initialize a camera
@@ -50,7 +47,7 @@ namespace IrrGame
     }
     
 	IAnimatedMeshSceneNode* World::AddAnimatedMesh(const std::string& modelFile, const std::string& textureFile, ISceneNode* parent, const vector3df& position,
-	const vector3df& rotation, const vector3df& scale)
+		const vector3df& rotation, const vector3df& scale)
 	{
 		// Create and add a mesh from the given file and texture
 		IAnimatedMesh* mesh = scene->getMesh((MODEL_PATH + modelFile).c_str());

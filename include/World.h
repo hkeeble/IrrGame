@@ -4,13 +4,13 @@
  * @brief   Declarations for a class that represents the world scene node.
  * @see     World
  */
+ 
 #ifndef WORLD_H
 #define WORLD_H
 
 #include <irrlicht.h>
 
 #include "Log.h"
-#include "VoxelMap.h"
 
 using namespace irr;
 using namespace scene;
@@ -55,8 +55,6 @@ namespace IrrGame
         private:
             ISceneManager* scene; /*!< The scene manager the world is using. */
             IVideoDriver* driver; /*!< The video driver being used by the world. */
-            
-            VoxelMap voxelMap; /*!< The world's voxel map. */
             
             // World Constants
             static const std::string TEXTURE_PATH; 	/*!< Constant string containing address of the global texture directory. */

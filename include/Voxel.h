@@ -9,6 +9,7 @@
 #include <irrlicht.h>
 
 #include "Shapes.h"
+#include "VoxelType.h"
 
 using namespace irr;
 using namespace scene;
@@ -21,20 +22,17 @@ namespace IrrGame
     {
         public:
             Voxel();
-
-            /*! Voxel Constructor */
-            /**
-                @param cube The cube representing the voxel's position in world space and it's bounding box.
-             */
-            Voxel(Cube cube);
-
-            SMesh* GetMesh();
-
+            Voxel(const VoxelType& type);
             virtual ~Voxel();
+            
+            void SetType(const VoxelType& type);
+            const VoxelType& GetType();
+            
+            void Activate();
+            void Deactivate();
         private:
-            Cube bounds;            /*!< The bounds of the voxel in world space. */
-            SMesh* mesh;            /*!< The voxel's mesh pointer. */
-            SMeshBuffer* meshbuf;   /*!< Pointer to the voxel's mesh buffer. */
+        	bool active; /*!< Whether or not the voxel is active. */
+        	VoxelType type; /*!< The type of voxel. */
     };
 }
 #endif // VOXEL_H
