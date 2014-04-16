@@ -14,12 +14,18 @@
 
 #include "stringext.h"
 
+#ifdef WIN32
+#define PATH_SEPERATOR '\\'
+#endif
+
+#ifdef UNIX
+#define PATH_SEPERATOR = '/';
+#endif
+
 namespace IrrGame
 {	
-	#ifdef _DEBUG
 	/** Write data out to the game log and terminal window. */
     extern void Log(const std::string& data);
-	#endif // _DEBUG
 	
 	/** Represents a file. */
 	class FileName
@@ -85,7 +91,7 @@ namespace IrrGame
 		
 		/** Returns whether or not the path contains a file. */
 		bool ContainsFile() const;
-		
+
 	private:
 		std::string path; /*!< The folder path. */
 		FileName file; 	  /*!< The file contained in the path. */

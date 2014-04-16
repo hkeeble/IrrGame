@@ -23,4 +23,8 @@ namespace IrrGame
         logStream.Close();
     }
     #endif // _DEBUG
+
+	#ifdef NDEBUG
+	void Log(const std::string& data) { }
+	#endif // NDEBUG
 }
