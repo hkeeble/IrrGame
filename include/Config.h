@@ -34,7 +34,7 @@ namespace IrrGame
             const std::string cfgFName;
             FileStream stream;
 
-            const std::string& ReadParam(const std::string& param);
+            std::string ReadParam(const std::string& param);
             void WriteParam(const std::string& param);
             void WriteParam(const int& param);
 

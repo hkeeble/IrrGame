@@ -100,6 +100,6 @@ namespace IrrGame
 	
 	std::vector<vector3df> Chunk::CreateCube(const vector3df& origin)
 	{
-		
+		return std::vector<vector3df>();
 	}
 }

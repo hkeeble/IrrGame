@@ -7,10 +7,10 @@
 
 namespace IrrGame
 {
-    Config::Config() : cfgFName("config.cfg")
+    Config::Config() : cfgFName("config")
     {
         // Initialize the stream
-        stream = FileStream(cfgFName);
+        stream = FileStream(IOPath("data/", FileName(cfgFName, "cfg")));
 
         this->windowBounds = Rectangle(0,0,std::stoi(ReadParam(WIDTH)),std::stoi(ReadParam(HEIGHT)));
         this->windowCaption = L"IrrGame";
@@ -43,7 +43,7 @@ namespace IrrGame
         windowCaption = caption;
     }
 
-    const std::string& Config::ReadParam(const std::string& param)
+    std::string Config::ReadParam(const std::string& param)
     {
         // Open a new stream for the file
         stream.Open();
