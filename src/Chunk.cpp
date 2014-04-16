@@ -31,6 +31,21 @@ namespace IrrGame
 		GenerateMesh();
 	}
 		
+	bool Chunk::IsActive() const
+	{
+		return render;
+	}
+		
+	float Chunk::VoxelScale() const
+	{
+		return voxelScale;
+	}
+	
+	SMesh* Chunk::GetMesh() const
+	{
+		return mesh;
+	}
+	
 	Chunk::Chunk(const Chunk& param)
 	{
 		Copy(param);

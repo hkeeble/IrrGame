@@ -30,6 +30,15 @@ namespace IrrGame
 		Voxel* operator()(const int& x, const int& y, const int& z);
 		virtual ~Chunk();
 		
+		/** Returns a pointer to the mesh for this chunk. */
+		SMesh* GetMesh() const;
+		
+		/** Returns whether or not this chunk is active and should be rendered. */
+		bool IsActive() const;
+		
+		/** Returns the scale of the voxels within this chunk. */
+		float VoxelScale() const;
+		
 		/** Activate rendering of this chunk. */
 		void Activate();
 		

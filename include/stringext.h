@@ -11,7 +11,8 @@
 #include <sstream>
 #include <vector>
 #include <iostream>
-#include "Log.h"
+
+#include "IO.h"
 
 namespace IrrGame
 {

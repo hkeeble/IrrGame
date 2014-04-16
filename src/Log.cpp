@@ -4,7 +4,7 @@
  * @brief   Definitions for writing to a log during debug.
  */
 
-#include "Log.h"
+#include "IO.h"
 
 namespace IrrGame
 {
@@ -23,8 +23,4 @@ namespace IrrGame
         logStream.Close();
     }
     #endif // _DEBUG
-
-    #ifdef NDEBUG
-    void Log(const std::string& data) { }
-    #endif
 }

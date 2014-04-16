@@ -47,7 +47,7 @@ namespace IrrGame
     {
         // Open a new stream for the file
         stream.Open();
-
+        
         std::string line = "";
         std::string value = "";
 

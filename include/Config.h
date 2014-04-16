@@ -1,18 +1,16 @@
-
+/**
+ * @file    Config.h
+ * @author  Henri Keeble
+ * @brief   Declarations for a configuration structure, reads and writes configuration data.
+ * @see		Config
+ */
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
 
 #include <string>
 
 #include "Shapes.h"
-#include "FileStream.h"
-#include "stringext.h"
-#include "Log.h"
-/**
- * @file    Config.h
- * @author  Henri Keeble
- * @brief   Declarations for a configuration structure, reads and writes configuration data.
- */
+#include "IO.h"
 
 namespace IrrGame
 {

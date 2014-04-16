@@ -4,16 +4,16 @@
  * @brief fstream wrapper class.
  */
 
-#include "FileStream.h"
+#include "IO.h"
 
 namespace IrrGame
 {
     FileStream::FileStream()
     {
-        filePath = "";
+        filePath = IOPath();
     }
 
-    FileStream::FileStream(const std::string& filePath)
+    FileStream::FileStream(const IOPath& filePath)
     {
         this->filePath = filePath;
     }
@@ -83,7 +83,7 @@ namespace IrrGame
     void FileStream::Open()
     {
         Close();
-        file.open(filePath, std::ios::in | std::ios::out);
+        file.open(filePath.GetFileAndPath(), std::ios::in | std::ios::out);
     }
 
     void FileStream::Close()
@@ -101,6 +101,11 @@ namespace IrrGame
     {
         return file.eof();
     }
+		
+	IOPath FileStream::GetPath() const
+	{
+		return filePath;
+	}
 
     void FileStream::Seek(std::string data)
     {

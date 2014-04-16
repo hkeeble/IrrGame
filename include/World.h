@@ -10,7 +10,7 @@
 
 #include <irrlicht.h>
 
-#include "Log.h"
+#include "IO.h"
 
 using namespace irr;
 using namespace scene;

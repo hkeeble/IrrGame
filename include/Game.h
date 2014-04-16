@@ -10,10 +10,10 @@
 #include <irrlicht.h>
 
 #include "Config.h"
-#include "Log.h"
 #include "InputHandler.h"
 #include "World.h"
 #include "Voxel.h"
+#include "IO.h"
 
 // Irrilicht namespace and subnamespaces
 using namespace irr;
