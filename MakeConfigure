@@ -35,22 +35,16 @@ INCL_DIR=-Iinclude/ -I$(IRRLICHT_HOME)/include/
 
 # DETECT PREPROCESSOR DEFINITIONS
 ifeq ($(TRG_DIR), debug)
-	PRP_DIR = -D_DEBUG
+	PRP_DIR = -D_DEBUG -DUNIX
 else
-	PRP_DIR = -DNDEBUG
+	PRP_DIR = -DNDEBUG -DUNIX
 endif
 
 # COPY TARGET NAME
 COPY_DATA=copydata
 
-# DETECT OPERATING SYSTEM FOR BUILD AND INTERMEDIATE DIRECTORIES
-ifeq ($(OS), Windows_NT)
-	BLD_DIR=build/windows/$(TRG_DIR)
-	INT_DIR=obj/windows/$(TRG_DIR)
-else
-	BLD_DIR=build/unix/$(TRG_DIR)
-	INT_DIR=obj/unix/$(TRG_DIR)
-endif
+BLD_DIR=build/unix/$(TRG_DIR)
+INT_DIR=obj/unix/$(TRG_DIR)
 
 # OBJECTS - CONSTRUCT THESE FROM CPP FILES IN SRC
 OBJECTS=$(subst $(SRC_DIR), $(INT_DIR), $(patsubst %.cpp,%.o,$(wildcard $(SRC_DIR)/*.cpp)))

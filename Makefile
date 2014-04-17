@@ -21,7 +21,7 @@ debug: $(COPY_DATA) $(OBJECTS)
 # ----- RELEASE TARGET -----
 release: $(COPY_DATA) $(OBJECTS)
 	@echo "Compiling objects..."
-	$(CC) $(CCFLAGS) $(OBJECTS) -o $(BLD_DIR)$(EXEC) $(INCL_DIR) $(LIB_DIRS) $(LIBS)
+	$(CC) $(CCFLAGS) $(OBJECTS) -o $(BLD_DIR)/$(EXEC) $(INCL_DIR) $(LIB_DIRS) $(LIBS)
 
 # ----- CLEAN TARGET -----
 clean:
@@ -29,10 +29,6 @@ clean:
 	rm -r obj/unix/release/*.o
 	rm -r build/unix/debug/data/*
 	rm -r build/unix/release/data/*
-	rm -r obj/windows/debug/*.o
-	rm -r obj/windows/release/*.o
-	rm -r build/windows/debug/data/*
-	rm -r build/windows/release/data/*
 
 # ----- PATTERN RULE FOR .CPP TO .O -----
 $(INT_DIR)/%.o : $(SRC_DIR)/%.cpp

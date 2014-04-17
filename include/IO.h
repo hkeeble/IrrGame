@@ -14,14 +14,6 @@
 
 #include "stringext.h"
 
-#ifdef WIN32
-#define PATH_SEPERATOR '\\'
-#endif
-
-#ifdef UNIX
-#define PATH_SEPERATOR = '/';
-#endif
-
 namespace IrrGame
 {	
 	/** Write data out to the game log and terminal window. */

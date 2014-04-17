@@ -32,17 +32,17 @@ namespace IrrGame
 		void IOPath::Up()
 		{
 			// Extract individual folders
-			std::vector<std::string> folders = splitStr(path, PATH_SEPERATOR);
+			std::vector<std::string> folders = splitStr(path, '/');
 			
 			// Read folders back into path, excluding the last
 			path = "";
 			for(int i = 0; i < folders.size()-1; i++)
-				path += folders[i] + PATH_SEPERATOR;
+				path += folders[i] + '/';
 		}
 		
 		void IOPath::Down(const std::string& folder)
 		{
-			path += folder + PATH_SEPERATOR;
+			path += folder + '/';
 		}
 		
 		void IOPath::AddFile(const FileName& fileName)
