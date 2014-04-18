@@ -14,7 +14,7 @@
 #include "World.h"
 #include "Voxel.h"
 #include "IO.h"
-#include "HUD.h"
+#include "DebugHUD.h"
 
 // Irrilicht namespace and subnamespaces
 using namespace irr;
@@ -61,7 +61,8 @@ namespace IrrGame
             GameState state;
             InputHandler keyboard;
             World world; /*!< The game world currently loaded. */
-            HUD dbgHUD;
+            
+            DebugHUD dbgHUD; /*!< The debugging HUD. */
     };
 }
 #endif // IRRGAME_H

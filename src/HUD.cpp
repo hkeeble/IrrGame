@@ -9,36 +9,68 @@
  
 namespace IrrGame
 {
-#ifdef _DEBUG
-	HUD::HUD()
+	HUD::HUDElement::HUDElement(std::wstring text, std::wstring data, vector2di position, IGUIFont* font, SColor color)
 	{
-		elements = std::vector<HUDElementBase*>();
+		this->text = text;
+		this->data = data;
+		this->position = position;
+		this->color = color;
+		this->font = font;
 	}
 	
-	HUD::HUD(int windowWidth, int windowHeight, IGUIEnvironment* guiEnv, IOPath fontPath)
+	HUD::HUD()
 	{
-		cfgWidth = windowWidth;
-		cfgHeight = windowHeight;
+		elements = std::vector<HUDElement>();
+	}
+	
+	HUD::HUD(const Config& cfg, IGUIEnvironment* guiEnv)
+	{
+		cfgWidth = cfg.WindowBounds().width;
+		cfgHeight = cfg.WindowBounds().height;
 		iGUIEnv = guiEnv;
+	}
+	
+	int HUD::AddFont(IOPath path)
+	{
+		fonts.push_back(iGUIEnv->getFont(path.GetFileAndPath().c_str()));
+		return fonts.size() - 1;	
+	}
 		
-		font = iGUIEnv->getFont(fontPath.GetFileAndPath().c_str());
+	IGUIFont* HUD::GetFont(int id) const
+	{
+		return fonts.at(id);
+	}
+		
+	void HUD::UpdateElement(int elementID, std::wstring newData)
+	{
+		elements.at(elementID).data = newData;
 	}
 	
 	HUD::~HUD()
 	{
-		for(auto& element : elements)
-		{
-			delete element;
-		}
+	
 	}
 	
 	void HUD::Render()
 	{
 		for(auto element : elements)
 		{
-			font->draw(element->text.c_str(), rect<s32>((cfgWidth * element->position.X) / 100,
-			(cfgHeight * element->position.Y) / 100, 0, 0), video::SColor(255, 255, 255, 255));
+			element.font->draw((element.text + element.data).c_str(), rect<s32>((cfgWidth * element.position.X) / 100,
+				(cfgHeight * element.position.Y) / 100, 0, 0), video::SColor(255, 255, 255, 255));
 		}
 	}
-#endif // _DEBUG
+	
+	int HUD::AddElement(std::wstring text, std::wstring data, vector2di position, int font, SColor color)
+	{
+		if(font < 0 && font > fonts.size())
+			Log("Invalid font ID passed into HUD.");
+	
+		elements.push_back(HUDElement(text, data, vector2di(clamp<int>(position.X, 0, 100), clamp<int>(position.Y, 0, 100)), GetFont(font), color));
+		return elements.size()-1;
+	}
+	
+	int HUD::AddElement(std::wstring text, vector2di position, int font, SColor color)
+	{
+		AddElement(text, L"", position, font, color); // Add element with blank data
+	}
 }

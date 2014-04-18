@@ -14,7 +14,7 @@ namespace IrrGame
         iDevice = nullptr;
         iVideoDriver = nullptr;
         iGUIEnv = nullptr;
-        dbgHUD = HUD();
+        dbgHUD = DebugHUD();
     }
 
     void Game::Init()
@@ -45,8 +45,8 @@ namespace IrrGame
         // Remove cursor
         iDevice->getCursorControl()->setVisible(false);
         
-        dbgHUD = HUD(cfg.WindowBounds().width, cfg.WindowBounds().height, iGUIEnv, IOPath("data/fonts/", FileName("smallFont", "xml")));
-        dbgHUD.AddElement<int>(L"Hello World!", 10, vector2di(0, 0));
+        dbgHUD = DebugHUD(cfg, iGUIEnv);
+        dbgHUD.Init();
     }
 
     const GameState& Game::GetState() const
@@ -79,6 +79,7 @@ namespace IrrGame
             world.Render();
             iGUIEnv->drawAll();
 
+			dbgHUD.Update(cfg, 0);
 			dbgHUD.Render();
 
             iVideoDriver->endScene();
