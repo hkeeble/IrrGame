@@ -15,6 +15,7 @@ namespace IrrGame
         iVideoDriver = nullptr;
         iGUIEnv = nullptr;
         dbgHUD = DebugHUD();
+        drawDebugHUD = true;
     }
 
     void Game::Init()
@@ -79,8 +80,10 @@ namespace IrrGame
             world.Render();
             iGUIEnv->drawAll();
 
-			dbgHUD.Update(cfg, 0);
-			dbgHUD.Render();
+			HandleDebugHUD(); // Handles the debug HUD, only draws in debug build
+			
+			if(keyboard.IsKeyDown(KEY_ESCAPE))
+                state = EXIT;
 
             iVideoDriver->endScene();
         }
@@ -109,4 +112,18 @@ namespace IrrGame
  		if(iDevice)
  			FreeIDevice();   
     }
+    
+    void Game::HandleDebugHUD()
+    {
+    #ifdef _DEBUG
+		if(drawDebugHUD)
+		{
+			dbgHUD.Update(cfg, 0);
+			dbgHUD.Render();
+		}
+			
+		if(keyboard.IsKeyDown(KEY_TAB))
+        	drawDebugHUD = !drawDebugHUD;
+	#endif // _DEBUG
+	}
 }

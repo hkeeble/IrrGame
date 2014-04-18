@@ -61,8 +61,13 @@ namespace IrrGame
             GameState state;
             InputHandler keyboard;
             World world; /*!< The game world currently loaded. */
+            bool drawDebugHUD;
             
+            void HandleDebugHUD();
+            
+        #ifdef _DEBUG
             DebugHUD dbgHUD; /*!< The debugging HUD. */
+        #endif // _DEBUG
     };
 }
 #endif // IRRGAME_H

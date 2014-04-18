@@ -11,6 +11,14 @@
 
 using namespace irr;
 
+enum class KeyState
+{
+	Pressed,	/*!< Key has just been pressed. */
+	Released,	/*!< Key has just been released. */
+	Down,		/*!< Key is held down. */
+	Up			/*!< Key is up. */
+};
+
 class InputHandler : public IEventReceiver
 {
 public:
