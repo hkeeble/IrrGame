@@ -73,7 +73,7 @@ namespace IrrGame
 		 * @param path Path of the font XML file and all image files.
 		 * @return 	   Returns the ID of the font.
 		 */
-		int AddFont(IOPath path);
+		int AddFont(std::string path);
 
 		/** Returns font contained within the given ID. */
 		/**

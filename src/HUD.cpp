@@ -30,9 +30,9 @@ namespace IrrGame
 		iGUIEnv = guiEnv;
 	}
 	
-	int HUD::AddFont(IOPath path)
+	int HUD::AddFont(std::string path)
 	{
-		fonts.push_back(iGUIEnv->getFont(path.GetFileAndPath().c_str()));
+		fonts.push_back(iGUIEnv->getFont(path.c_str()));
 		return fonts.size() - 1;	
 	}
 		

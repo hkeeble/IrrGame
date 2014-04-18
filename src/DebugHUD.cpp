@@ -11,9 +11,9 @@ namespace IrrGame
 {
 	void DebugHUD::Init()
 	{
-		smallFont = AddFont(IOPath("data/fonts/", FileName("smallFont", "xml")));
-		mediumFont = AddFont(IOPath("data/fonts/", FileName("mediumFont", "xml")));
-		largeFont = AddFont(IOPath("data/fonts/", FileName("largeFont", "xml")));
+		smallFont = AddFont("data/fonts/smallFont.xml");
+		mediumFont = AddFont("data/fonts/mediumFont.xml");
+		largeFont = AddFont("data/fonts/largeFont.xml");
 		
 		title = AddElement(L"IrrGame Debug Display", vector2di(2, 0), mediumFont, SColor(255, 255, 255, 255));
 		fps = AddElement(L"FPS: ", vector2di(2, 95), smallFont, SColor(255, 255, 255, 255));

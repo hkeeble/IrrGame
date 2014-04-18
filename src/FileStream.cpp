@@ -10,10 +10,10 @@ namespace IrrGame
 {
     FileStream::FileStream()
     {
-        filePath = IOPath();
+        filePath = "";
     }
 
-    FileStream::FileStream(const IOPath& filePath)
+    FileStream::FileStream(const std::string& filePath)
     {
         this->filePath = filePath;
     }
@@ -83,7 +83,7 @@ namespace IrrGame
     void FileStream::Open()
     {
         Close();
-        file.open(filePath.GetFileAndPath(), std::ios::in | std::ios::out);
+        file.open(filePath, std::ios::in | std::ios::out);
     }
 
     void FileStream::Close()
@@ -102,7 +102,7 @@ namespace IrrGame
         return file.eof();
     }
 		
-	IOPath FileStream::GetPath() const
+	const std::string& FileStream::GetPath() const
 	{
 		return filePath;
 	}

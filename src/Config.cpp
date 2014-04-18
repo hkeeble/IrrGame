@@ -10,7 +10,7 @@ namespace IrrGame
     Config::Config() : cfgFName("config")
     {
         // Initialize the stream
-        stream = FileStream(IOPath("data/", FileName(cfgFName, "cfg")));
+        stream = FileStream("data/" + cfgFName + ".cfg");
 
         this->windowBounds = Rectangle(0,0,std::stoi(ReadParam(WIDTH)),std::stoi(ReadParam(HEIGHT)));
         this->windowCaption = L"IrrGame";

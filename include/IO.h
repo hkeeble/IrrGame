@@ -19,77 +19,6 @@ namespace IrrGame
 	/** Write data out to the game log and terminal window. */
     extern void Log(const std::string& data);
 	
-	/** Represents a file. */
-	class FileName
-	{
-	public:
-		FileName();
-		FileName(const std::string& name, const std::string& ext);
-		virtual ~FileName();
-		
-		/** Retrieve the name of the file. */
-		const std::string& GetName() const;
-		
-		/** Retrieve the extension of the file. */
-		const std::string& GetExtension() const;
-		
-		/** Retrieve the name and extension of the file. */
-		std::string GetNameAndExt() const;
-		
-	private:
-		std::string name; /*!< Name of the file. */
-		std::string ext;  /*!< Extension used by the file. */
-	};
-	
-	/** Represents a file path. */
-	class IOPath
-	{
-	public:
-		IOPath();
-		/** Constructs a new path. */
-		/**
-		 * @param path The folder path.
-		 * @param file Name of the file. Leave blank for no file.
-		 */
-		IOPath(const std::string& path, const FileName& fileName = FileName());
-		virtual ~IOPath();
-		
-		/** Move the path up one level. */
-		void Up();
-		
-		/** Move the path down one level into the specified folder. */
-		/**
-		 * @param folder The name of the folder to move into, exclude any slashes.
-		 */
-		void Down(const std::string& folder);
-		
-		/** Add a file to the path. Overrides any existing file name within the path. */
-		/**
-		 * @param fileName The filename to add to the path, including the file extension.
-		 */
-		void AddFile(const FileName& fileName);
-		
-		/** Removes the current file from this path. */
-		void RemoveFile();
-		
-		/** Retrieve the file contained within the path. Returns null if no path is held. */
-		const FileName& GetFile() const;
-		
-		/** Get the path contained in this path object, without filename. */
-		const std::string& GetPath() const;
-		
-		/** Return the file and path within this path. If there is no file, returns only path. */
-		std::string GetFileAndPath() const;
-		
-		/** Returns whether or not the path contains a file. */
-		bool ContainsFile() const;
-
-	private:
-		std::string path; /*!< The folder path. */
-		FileName file; 	  /*!< The file contained in the path. */
-		bool hasFile; 	  /*!< Whether or not this path contains a file. */	
-	};
-
 	/** Represents a file stream. */
     class FileStream
     {
@@ -100,7 +29,7 @@ namespace IrrGame
             /**
              *	@param filePath The path of the file with which to use in the stream.
              */
-            FileStream(const IOPath& filePath);
+            FileStream(const std::string& filePath);
             FileStream(const FileStream& param);
             const FileStream& operator=(const FileStream& param);
             virtual ~FileStream();
@@ -136,11 +65,11 @@ namespace IrrGame
             void Seek(std::string data);
 
 			/** Get the path of the file stream. */
-			IOPath GetPath() const;
+			const std::string& GetPath() const;
 	
         private:
-            std::fstream file /*!< The file stream itself. */;
-            IOPath filePath; /*!< The path of the file the stream is using. */
+            std::fstream file; /*!< The file stream itself. */
+            std::string filePath; /*!< Path of the file being streamed. */
 
             // Internal copying function
             void cpy(const FileStream& param);
