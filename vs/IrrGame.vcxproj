@@ -14,6 +14,7 @@
     <ClInclude Include="..\include\Chunk.h" />
     <ClInclude Include="..\include\ChunkManager.h" />
     <ClInclude Include="..\include\Config.h" />
+    <ClInclude Include="..\include\HUD.h" />
     <ClInclude Include="..\include\Game.h" />
     <ClInclude Include="..\include\InputHandler.h" />
     <ClInclude Include="..\include\IO.h" />
@@ -28,6 +29,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\Chunk.cpp" />
     <ClCompile Include="..\src\Config.cpp" />
+    <ClCompile Include="..\src\HUD.cpp" />
     <ClCompile Include="..\src\FIleName.cpp" />
     <ClCompile Include="..\src\FileStream.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
