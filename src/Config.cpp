@@ -12,8 +12,14 @@ namespace IrrGame
         // Initialize the stream
         stream = FileStream("data/" + cfgFName + ".cfg");
 
+		// Read window bounds
         this->windowBounds = Rectangle(0,0,std::stoi(ReadParam(WIDTH)),std::stoi(ReadParam(HEIGHT)));
-        this->windowCaption = L"IrrGame";
+		
+		// Read window caption
+		std::string caption = ReadParam(CAPTION);
+		std::wstring ws;
+		ws.assign(caption.begin(), caption.end());
+		this->windowCaption = ws;
     }
 
     Config::~Config()

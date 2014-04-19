@@ -24,9 +24,6 @@ using namespace video;
 using namespace io;
 using namespace gui;
 
-#define IRRGAME_MAJOR_VER 0
-#define IRRGAME_MINOR_VER 1
-
 /** Primary namespace used by IrrGame */
 namespace IrrGame
 {
@@ -73,6 +70,9 @@ namespace IrrGame
 			/** Override in base class. */
 			virtual void Render();
 
+			/** Retrieve the version of IrrGame being used by this game object. */
+			std::wstring GetIrrGameVersion() const;
+
         private:
 			/** Initialize Irrlicht. */
 			void InitIrrlicht();
@@ -83,6 +83,10 @@ namespace IrrGame
             World world;					/*!< The game world currently loaded. */
             
 			bool drawDebugHUD;				/*!< Whether or not the debug HUD is to be rendered. */
+
+			const std::wstring IRRGAME_MAJOR_VER = L"0"; /*!< The current major version of IrrGame being used. */
+			const std::wstring IRRGAME_MINOR_VER = L"1"; /*!< The current minor version of IrrGame being used. */
+
 #ifdef _DEBUG
             DebugHUD dbgHUD; /*!< The debugging HUD. */
 #endif // _DEBUG

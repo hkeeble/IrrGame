@@ -39,8 +39,9 @@ namespace IrrGame
             void WriteParam(const int& param);
 
             // Paramaters
-            const std::string WIDTH = "width";
-            const std::string HEIGHT = "height";
+			const std::string CAPTION	= "caption";
+            const std::string WIDTH		= "width";
+            const std::string HEIGHT	= "height";
     };
 }
 #endif // _CONFIG_H_

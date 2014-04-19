@@ -37,7 +37,8 @@ namespace IrrGame
         }
 
 		// Set the window caption using the current configuration.
-        iDevice->setWindowCaption((wchar_t*)cfg.WindowCaption().c_str());
+		std::wstring caption = L"IrrGame " + GetIrrGameVersion() + L"   :   " + cfg.WindowCaption();
+		iDevice->setWindowCaption((wchar_t*)caption.c_str());
 
         // Obtain pointers to useful objects
         iVideoDriver = iDevice->getVideoDriver();
@@ -53,6 +54,11 @@ namespace IrrGame
         dbgHUD = DebugHUD(cfg, iGUIEnv);
         dbgHUD.Init();
     }
+
+	std::wstring Game::GetIrrGameVersion() const
+	{
+		return L"v" + IRRGAME_MAJOR_VER + L"." + IRRGAME_MINOR_VER;
+	}
 
     const GameState& Game::GetState() const
     {
