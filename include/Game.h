@@ -73,6 +73,9 @@ namespace IrrGame
 			/** Retrieve the version of IrrGame being used by this game object. */
 			std::wstring GetIrrGameVersion() const;
 
+			/** Sets the FPS to use. */
+			void SetFPS(const int& fps);
+
         private:
 			/** Initialize Irrlicht. */
 			void InitIrrlicht();
@@ -83,6 +86,9 @@ namespace IrrGame
             World world;					/*!< The game world currently loaded. */
             
 			bool drawDebugHUD;				/*!< Whether or not the debug HUD is to be rendered. */
+
+			const int DEFAULT_FPS = 60;		/*!< The default FPS is none is specified. */
+			int targetFPS;					/*!< The target frames per second used by the game. */
 
 			const std::wstring IRRGAME_MAJOR_VER = L"0"; /*!< The current major version of IrrGame being used. */
 			const std::wstring IRRGAME_MINOR_VER = L"1"; /*!< The current minor version of IrrGame being used. */

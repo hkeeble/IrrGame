@@ -15,6 +15,7 @@
     <ClInclude Include="..\include\ChunkManager.h" />
     <ClInclude Include="..\include\Config.h" />
     <ClInclude Include="..\include\DebugHUD.h" />
+    <ClInclude Include="..\include\GameTime.h" />
     <ClInclude Include="..\include\HUD.h" />
     <ClInclude Include="..\include\Game.h" />
     <ClInclude Include="..\include\IrrEventHandler.h" />
@@ -28,6 +29,7 @@
     <ClInclude Include="..\include\World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\include\GameTime.cpp" />
     <ClCompile Include="..\src\Chunk.cpp" />
     <ClCompile Include="..\src\Config.cpp" />
     <ClCompile Include="..\src\DebugHUD.cpp" />

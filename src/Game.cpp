@@ -55,6 +55,11 @@ namespace IrrGame
         dbgHUD.Init();
     }
 
+	void Game::SetFPS(const int& fps)
+	{
+		targetFPS = fps;
+	}
+
 	std::wstring Game::GetIrrGameVersion() const
 	{
 		return L"v" + IRRGAME_MAJOR_VER + L"." + IRRGAME_MINOR_VER;
@@ -80,8 +85,9 @@ namespace IrrGame
 			if (!iDevice->run())
 				errFatal("Irrlicht device failed unexpectedly.");
 
-			Update();
-			Render();
+			Update(); // Update the game logic
+			
+			Render(); // Render the game world
         }
 
         if(state == ERR_STATE)
