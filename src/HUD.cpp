@@ -71,6 +71,6 @@ namespace IrrGame
 	
 	int HUD::AddElement(std::wstring text, vector2di position, int font, SColor color)
 	{
-		AddElement(text, L"", position, font, color); // Add element with blank data
+		return AddElement(text, L"", position, font, color); // Add element with blank data
 	}
 }

@@ -14,9 +14,10 @@
     <ClInclude Include="..\include\Chunk.h" />
     <ClInclude Include="..\include\ChunkManager.h" />
     <ClInclude Include="..\include\Config.h" />
+    <ClInclude Include="..\include\DebugHUD.h" />
     <ClInclude Include="..\include\HUD.h" />
     <ClInclude Include="..\include\Game.h" />
-    <ClInclude Include="..\include\InputHandler.h" />
+    <ClInclude Include="..\include\IrrEventHandler.h" />
     <ClInclude Include="..\include\IO.h" />
     <ClInclude Include="..\include\Shapes.h" />
     <ClInclude Include="..\include\stringext.h" />
@@ -29,12 +30,11 @@
   <ItemGroup>
     <ClCompile Include="..\src\Chunk.cpp" />
     <ClCompile Include="..\src\Config.cpp" />
+    <ClCompile Include="..\src\DebugHUD.cpp" />
     <ClCompile Include="..\src\HUD.cpp" />
-    <ClCompile Include="..\src\FIleName.cpp" />
     <ClCompile Include="..\src\FileStream.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
-    <ClCompile Include="..\src\InputHandler.cpp" />
-    <ClCompile Include="..\src\IOPath.cpp" />
+    <ClCompile Include="..\src\IrrEventHandler.cpp" />
     <ClCompile Include="..\src\Log.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Shapes.cpp" />

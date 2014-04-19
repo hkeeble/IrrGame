@@ -10,7 +10,7 @@
 #include <irrlicht.h>
 
 #include "Config.h"
-#include "InputHandler.h"
+#include "IrrEventHandler.h"
 #include "World.h"
 #include "Voxel.h"
 #include "IO.h"
@@ -27,47 +27,65 @@ using namespace gui;
 #define IRRGAME_MAJOR_VER 0
 #define IRRGAME_MINOR_VER 1
 
+/** Primary namespace used by IrrGame */
 namespace IrrGame
 {
+	/** Represents a game state. */
     enum GameState
     {
-        READY,
-        RUNNING,
-        ERR_STATE,
-        EXIT
+		READY,		/*!< The game is ready, but Run() has not been called. */
+		RUNNING,	/*!< The game is currently running and is updating the main loop. */
+		ERR_STATE,	/*!< The game is in error state, and will exit after the current loop. */
+		EXIT		/*!< The game is preparing to exit cleanly by user request, and will exit after the current loop. */
     };
 
+	/** A Game class. */
     class Game
     {
         public:
             Game();
             virtual ~Game();
+
+			/** Run the game, entering the main loop. */
             void Run();
+
         protected:
-            Config cfg;
-            IrrlichtDevice* iDevice;
-            IVideoDriver* iVideoDriver;
-            IGUIEnvironment* iGUIEnv;
+			Config cfg;					/** The game configuration object. */
+			IrrlichtDevice* iDevice;	/** The main Irrlicht device. */
+			IVideoDriver* iVideoDriver;	/** The Irrlicht video driver. */
+			IGUIEnvironment* iGUIEnv;	/** The Irrlicht GUI Environment. */
 
+			/** Retrieves the current game state. */
             const GameState& GetState() const;
-            void SetState(const GameState& state);
+            
+			/** Sets the current game state. */
+			void SetState(const GameState& state);
 
+			/** Fatal error has occurred, outputs a log message and sets game to error state. */
             void errFatal(const std::string msg);
 
+			/** Frees the Irrlicht device. */
 			void FreeIDevice();
 
+			/** Override in base class. */
+			virtual void Update();
+
+			/** Override in base class. */
+			virtual void Render();
+
         private:
-            void Init();
-            GameState state;
-            InputHandler keyboard;
-            World world; /*!< The game world currently loaded. */
-            bool drawDebugHUD;
+			/** Initialize Irrlicht. */
+			void InitIrrlicht();
+
+			GameState state;				/*!< The current game state. */
+			IrrEventHandler eventHandler;	/*!< The game event handler. */
+			InputState* inputState;			/*!< The current input state. */
+            World world;					/*!< The game world currently loaded. */
             
-            void HandleDebugHUD();
-            
-        #ifdef _DEBUG
+			bool drawDebugHUD;				/*!< Whether or not the debug HUD is to be rendered. */
+#ifdef _DEBUG
             DebugHUD dbgHUD; /*!< The debugging HUD. */
-        #endif // _DEBUG
+#endif // _DEBUG
     };
 }
 #endif // IRRGAME_H

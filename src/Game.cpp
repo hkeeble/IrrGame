@@ -10,35 +10,38 @@ namespace IrrGame
 {
     Game::Game()
     {
-        state = READY;
-        iDevice = nullptr;
-        iVideoDriver = nullptr;
-        iGUIEnv = nullptr;
-        dbgHUD = DebugHUD();
-        drawDebugHUD = true;
+		InitIrrlicht();
+		state = READY;
     }
 
-    void Game::Init()
+	void Game::InitIrrlicht()
     {
         Log("Initializing IrrGame Object...");
 
-        iDevice = createDevice( video::EDT_OPENGL, dimension2d<u32>(cfg.WindowBounds().width, cfg.WindowBounds().height), 16,
-            false, false, false, &keyboard);
+		// Initialize the input handler
+		eventHandler = IrrEventHandler();
 
+		// Create and register an input state.
+		inputState = new InputState();
+		eventHandler.RegisterInputState(inputState);
+
+		// Create an Irrlicht device, with window bounds, and pass a reference to the event handler.
+        iDevice = createDevice( video::EDT_OPENGL, dimension2d<u32>(cfg.WindowBounds().width, cfg.WindowBounds().height), 16,
+			false, false, false, &eventHandler);
+
+		// Handle any errors creating the Irrlicht device.
         if(iDevice == nullptr)
         {
             Log("Error initializing irrlicht device!");
             SetState(ERR_STATE);
         }
 
+		// Set the window caption using the current configuration.
         iDevice->setWindowCaption((wchar_t*)cfg.WindowCaption().c_str());
 
         // Obtain pointers to useful objects
         iVideoDriver = iDevice->getVideoDriver();
         iGUIEnv = iDevice->getGUIEnvironment();
-
-        // Initialize the input handler
-        keyboard = InputHandler();
 
         // Initialize the game world
         world = World(iDevice->getSceneManager(), iVideoDriver, 10, 10, 10);
@@ -46,6 +49,7 @@ namespace IrrGame
         // Remove cursor
         iDevice->getCursorControl()->setVisible(false);
         
+		// Initlialize the debug HUD.
         dbgHUD = DebugHUD(cfg, iGUIEnv);
         dbgHUD.Init();
     }
@@ -62,30 +66,16 @@ namespace IrrGame
 
     void Game::Run()
     {
-        Init();
-
         state = RUNNING;
 
         Log("Entering main game loop...");
         while(state == RUNNING)
         {
-            if(!iDevice->run())
-                state = EXIT;
+			if (!iDevice->run())
+				errFatal("Irrlicht device failed unexpectedly.");
 
-            if(keyboard.IsKeyDown(KEY_ESCAPE))
-                state = EXIT;
-
-            iVideoDriver->beginScene(true, true, SColor(255,100,101,140));
-
-            world.Render();
-            iGUIEnv->drawAll();
-
-			HandleDebugHUD(); // Handles the debug HUD, only draws in debug build
-			
-			if(keyboard.IsKeyDown(KEY_ESCAPE))
-                state = EXIT;
-
-            iVideoDriver->endScene();
+			Update();
+			Render();
         }
 
         if(state == ERR_STATE)
@@ -95,6 +85,35 @@ namespace IrrGame
 
         FreeIDevice();
     }
+
+	void Game::Update()
+	{
+		if (inputState->IsKeyDown(KEY_ESCAPE))
+			state = EXIT;
+
+#ifdef _DEBUG
+		if (inputState->IsKeyDown(KEY_TAB))
+			drawDebugHUD = !drawDebugHUD;
+#endif // _DEBUG
+	}
+
+	void Game::Render()
+	{
+		iVideoDriver->beginScene(true, true, SColor(255, 100, 101, 140));
+
+		world.Render();
+		iGUIEnv->drawAll();
+		
+#ifdef _DEBUG
+		if (drawDebugHUD)
+		{
+			dbgHUD.Update(cfg, 0);
+			dbgHUD.Render();
+		}
+#endif // _DEBUG
+
+		iVideoDriver->endScene();
+	}
 
 	void Game::FreeIDevice()
 	{
@@ -112,18 +131,4 @@ namespace IrrGame
  		if(iDevice)
  			FreeIDevice();   
     }
-    
-    void Game::HandleDebugHUD()
-    {
-    #ifdef _DEBUG
-		if(drawDebugHUD)
-		{
-			dbgHUD.Update(cfg, 0);
-			dbgHUD.Render();
-		}
-			
-		if(keyboard.IsKeyDown(KEY_TAB))
-        	drawDebugHUD = !drawDebugHUD;
-	#endif // _DEBUG
-	}
 }
