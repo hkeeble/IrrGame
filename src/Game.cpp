@@ -101,7 +101,7 @@ namespace IrrGame
 
 			Render(); // Render the game world
 
-			inputState->Update(); // Update the input state
+			inputState->Flush(); // Flush the input state
         }
 
         if(state == ERR_STATE)
@@ -128,7 +128,7 @@ namespace IrrGame
 			state = EXIT;
 
 #ifdef _DEBUG
-		if (inputState->IsKeyPressed(KEY_TAB))
+		if (inputState->IsKeyReleased(KEY_TAB))
 		{
 			drawDebugHUD = !drawDebugHUD;
 			Log("Toggle HUD");
