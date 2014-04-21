@@ -16,12 +16,6 @@
     <Filter Include="Source Files\IO">
       <UniqueIdentifier>{1505789d-99db-450a-bc67-88516a2a18ae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Voxel">
-      <UniqueIdentifier>{fa98cac9-8ccf-4ccd-9bf0-a9b4b6d0b06b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Voxel">
-      <UniqueIdentifier>{33a32dbc-c8c7-4692-a433-c994904474a4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Utils">
       <UniqueIdentifier>{3a8df0af-1e88-4c87-a5f2-84b8c3b28950}</UniqueIdentifier>
     </Filter>
@@ -44,18 +38,6 @@
     </ClInclude>
     <ClInclude Include="..\include\Config.h">
       <Filter>Header Files\IO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\ChunkManager.h">
-      <Filter>Header Files\Voxel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Chunk.h">
-      <Filter>Header Files\Voxel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\VoxelType.h">
-      <Filter>Header Files\Voxel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Voxel.h">
-      <Filter>Header Files\Voxel</Filter>
     </ClInclude>
     <ClInclude Include="..\include\TArray3D.h">
       <Filter>Header Files\Utils</Filter>
@@ -94,12 +76,6 @@
     </ClCompile>
     <ClCompile Include="..\src\Game.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Chunk.cpp">
-      <Filter>Source Files\Voxel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Voxel.cpp">
-      <Filter>Source Files\Voxel</Filter>
     </ClCompile>
     <ClCompile Include="..\src\FileStream.cpp">
       <Filter>Source Files\IO</Filter>

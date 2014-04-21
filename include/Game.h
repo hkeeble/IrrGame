@@ -12,7 +12,6 @@
 #include "Config.h"
 #include "IrrEventHandler.h"
 #include "World.h"
-#include "Voxel.h"
 #include "IO.h"
 #include "DebugHUD.h"
 #include "GameTime.h"

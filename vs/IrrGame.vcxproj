@@ -11,8 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\Chunk.h" />
-    <ClInclude Include="..\include\ChunkManager.h" />
     <ClInclude Include="..\include\Config.h" />
     <ClInclude Include="..\include\DebugHUD.h" />
     <ClInclude Include="..\include\GameTime.h" />
@@ -25,13 +23,10 @@
     <ClInclude Include="..\include\TArray3D.h" />
     <ClInclude Include="..\include\Timer.h" />
     <ClInclude Include="..\include\uncopyable.h" />
-    <ClInclude Include="..\include\Voxel.h" />
-    <ClInclude Include="..\include\VoxelType.h" />
     <ClInclude Include="..\include\World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\include\GameTime.cpp" />
-    <ClCompile Include="..\src\Chunk.cpp" />
     <ClCompile Include="..\src\Config.cpp" />
     <ClCompile Include="..\src\DebugHUD.cpp" />
     <ClCompile Include="..\src\HUD.cpp" />
@@ -42,7 +37,6 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Shapes.cpp" />
     <ClCompile Include="..\src\Timer.cpp" />
-    <ClCompile Include="..\src\Voxel.cpp" />
     <ClCompile Include="..\src\World.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

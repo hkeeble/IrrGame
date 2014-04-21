@@ -83,7 +83,10 @@ namespace IrrGame
     void FileStream::Open()
     {
         Close();
-        file.open(filePath, std::ios::in | std::ios::out);
+		file.open(filePath, std::ios::in | std::ios::out | std::fstream::app);
+		
+		if (file.rdstate() == std::ios_base::failbit)
+			std::cout << "Error! Failed to open stream for file " << filePath << "!\n";
     }
 
     void FileStream::Close()

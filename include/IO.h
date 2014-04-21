@@ -19,6 +19,9 @@ namespace IrrGame
 	/** Write data out to the game log and terminal window. */
     extern void Log(const std::string& data);
 	
+	/** Set the logging file path. */
+	extern void SetLogPath(const std::string& filePath);
+
 	/** Represents a file stream. */
     class FileStream
     {

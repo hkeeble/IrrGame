@@ -9,12 +9,17 @@
 namespace IrrGame
 {
     #ifdef _DEBUG
-    static const std::string logFilePath = "log.txt";
+    static std::string logFilePath = "log.txt";
     static FileStream logStream;
+
+	void SetLogFile(const std::string& filePath)
+	{
+		logFilePath = filePath;
+	}
 
     void Log(const std::string& data)
     {
-        logStream = FileStream();
+        logStream = FileStream(logFilePath);
         logStream.Open();
 
         logStream.WriteLine(data);
