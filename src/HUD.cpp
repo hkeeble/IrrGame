@@ -40,7 +40,27 @@ namespace IrrGame
 	{
 		return fonts.at(id);
 	}
-		
+	
+	dimension2du HUD::ElementDimensions(u32 elementID)
+	{
+		dimension2du dims = elements[elementID].font->getDimension((elements[elementID].text + elements[elementID].data).c_str());
+		f32 w = ((f32)dims.Width / (f32)cfgWidth) * 100;
+		f32 h = ((f32)dims.Height / (f32)cfgHeight) * 100;
+		dims.Width = w;
+		dims.Height = h;
+		return dims;
+	}
+
+	dimension2du HUD::TextDimensions(std::wstring text, u32 fontID)
+	{
+		dimension2du dims = fonts[fontID]->getDimension(text.c_str());
+		f32 w = ((f32)dims.Width / (f32)cfgWidth) * 100;
+		f32 h = ((f32)dims.Height / (f32)cfgHeight) * 100;
+		dims.Width = w;
+		dims.Height = h;
+		return dims;
+	}
+
 	void HUD::UpdateElement(u32 elementID, std::wstring newData)
 	{
 		elements.at(elementID).data = newData;

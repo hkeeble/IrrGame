@@ -15,7 +15,9 @@ namespace IrrGame
 		mediumFont	= AddFont("data/fonts/mediumFont.xml");
 		largeFont	= AddFont("data/fonts/largeFont.xml");
 		
-		title	= AddElement(L"IrrGame Debug Display",			vector2di(2, 0), mediumFont, SColor(255, 255, 255, 255));
+		dimension2du titleDims = TextDimensions(L"IrrGame Debug Display", mediumFont);
+
+		title	= AddElement(L"IrrGame Debug Display",			vector2di(0, 0), mediumFont, SColor(255, 255, 255, 255));
 		fps		= AddElement(L"FPS: ",							vector2di(2, 95), smallFont, SColor(255, 255, 255, 255));
 		timer	= AddElement(L"Time(ms):",				L"0",	vector2di(75, 0), smallFont, SColor(255, 255, 255, 255));
 	}

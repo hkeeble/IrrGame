@@ -81,6 +81,23 @@ namespace IrrGame
 		 */
 		IGUIFont* GetFont(u32 id) const;
 
+		/** Returns the dimensions of the given element on screen. */
+		/**
+		 * @param elementID The ID of the element to obtain dimensions for.
+		 */
+		dimension2du ElementDimensions(u32 elementID);
+
+		/** Returns the dimensions of text should it be drawn with the given font. */
+		/**
+		 * @param text The text to get the dimensions for.
+		 * @param fontID The font to use to draw the text.
+		 */
+		dimension2du TextDimensions(std::wstring text, u32 fontID);
+
+	protected:
+		u32 cfgWidth;						/*!< The window width of the HUD. */
+		u32 cfgHeight;						/*!< The window width of the HUD. */
+
 	private:
 		/** Class that represents a HUD element. */
 		struct HUDElement
@@ -105,8 +122,6 @@ namespace IrrGame
 		std::vector<IGUIFont*> fonts; 		/*!< Small font used by the HUD. */
 		
 		IGUIEnvironment* iGUIEnv;			/*!< The GUI environment from the Irrlicht device used by this HUD. */
-		u32 cfgWidth;						/*!< The window width of the HUD. */
-		u32 cfgHeight;						/*!< The window width of the HUD. */
 		std::vector<HUDElement> elements;	/*!< The list of elements in the HUD. */
 	};
 }
