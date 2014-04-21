@@ -7,24 +7,28 @@
 #ifndef _SHAPES_H_
 #define _SHAPES_H_
 
+#include <irrlicht.h>
+
+using namespace irr;
+
 namespace IrrGame
 {
     struct Rectangle
     {
-        Rectangle(int x = 0, int y = 0, int width = 0, int height = 0);
-        int Area() const;
+        Rectangle(u32 x = 0, u32 y = 0, u32 width = 0, u32 height = 0);
+        u32 Area() const;
 
-        int x, y;
-        int width, height;
+        u32 x, y;
+        u32 width, height;
     };
 
     struct Cube
     {
-        Cube(int x = 0, int y = 0, int z = 0, int width = 0, int height = 0, int depth = 0);
-        int Area() const;
+        Cube(u32 x = 0, u32 y = 0, u32 z = 0, u32 width = 0, u32 height = 0, u32 depth = 0);
+        u32 Area() const;
 
-        int x, y, z;
-        int width, height, depth;
+        u32 x, y, z;
+        u32 width, height, depth;
     };
 }
 #endif // _SHAPES_H_

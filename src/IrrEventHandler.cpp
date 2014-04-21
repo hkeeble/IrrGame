@@ -32,9 +32,23 @@ namespace IrrGame
 			if (inputState)
 			{
 				if (event.KeyInput.PressedDown)
-					inputState->SetKey(event.KeyInput.Key, KeyState::Down);
+				{
+					if (inputState->IsKeyUp(event.KeyInput.Key))
+					{
+						inputState->SetKey(event.KeyInput.Key, KeyState::Pressed);
+						Log("Key pressed.");
+					}
+					else
+					{
+						inputState->SetKey(event.KeyInput.Key, KeyState::Down);
+						Log("Key Down.");
+					}
+				}
 				else
+				{
 					inputState->SetKey(event.KeyInput.Key, KeyState::Up);
+					Log("Key Up");
+				}
 			}
 			else
 				Log("Error! Could not handle key press, no input state registered with event handler.");
@@ -45,8 +59,10 @@ namespace IrrGame
 
 	KeyboardState::KeyboardState()
 	{
-		for (int i = 0; i < KEY_KEY_CODES_COUNT; i++)
+		for (u32 i = 0; i < KEY_KEY_CODES_COUNT; i++)
 			keyStates[i] = KeyState::Up;
+
+		pressedKeys = std::vector<EKEY_CODE>();
 	}
 
 	KeyboardState::~KeyboardState()
@@ -78,6 +94,16 @@ namespace IrrGame
 	void InputState::SetKey(EKEY_CODE key, KeyState state)
 	{
 		keyboardState.keyStates[key] = state;
+		if (state == KeyState::Pressed)
+			keyboardState.pressedKeys.push_back(key);
+	}
+
+	void InputState::Update()
+	{
+		for (auto i : keyboardState.pressedKeys)
+			keyboardState.keyStates[i] = KeyState::Down;
+		
+		keyboardState.pressedKeys.clear();
 	}
 
 	bool InputState::IsKeyDown(EKEY_CODE keyCode) const
@@ -88,5 +114,10 @@ namespace IrrGame
 	bool InputState::IsKeyUp(EKEY_CODE keyCode) const
 	{
 		return (keyboardState.keyStates[keyCode] == KeyState::Up);
+	}
+
+	bool InputState::IsKeyPressed(EKEY_CODE keyCode) const
+	{
+		return (keyboardState.keyStates[keyCode] == KeyState::Pressed);
 	}
 }

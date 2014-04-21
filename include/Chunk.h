@@ -24,10 +24,10 @@ namespace IrrGame
 	{
 	public:
 		Chunk();
-		Chunk(const int& width, const int& height, const int& depth, const float& voxelScale = 1.f);
+		Chunk(const u32& width, const u32& height, const u32& depth, const f32& voxelScale = 1.f);
 		Chunk(const Chunk& param);
 		const Chunk& operator=(const Chunk& param);
-		Voxel* operator()(const int& x, const int& y, const int& z);
+		Voxel* operator()(const u32& x, const u32& y, const u32& z);
 		virtual ~Chunk();
 		
 		/** Returns a pointer to the mesh for this chunk. */
@@ -37,7 +37,7 @@ namespace IrrGame
 		bool IsActive() const;
 		
 		/** Returns the scale of the voxels within this chunk. */
-		float VoxelScale() const;
+		f32 VoxelScale() const;
 		
 		/** Activate rendering of this chunk. */
 		void Activate();
@@ -46,10 +46,10 @@ namespace IrrGame
 		void Deactivate();
 
 	private:		
-		int width, height, depth;
+		u32 width, height, depth;
 		TArray3D<Voxel> voxels; /*!< The voxels contained within this chunk. */
 		SMesh* mesh; 			/*!< Mesh of the entire chunk. */
-		float voxelScale;		/*!< The scale of the voxels within this chunk. */
+		f32 voxelScale;		/*!< The scale of the voxels within this chunk. */
 		bool render;			/*!< Render flag. */
 		
 		void GenerateMesh();    /*!< Generates a mesh using current voxel data. */

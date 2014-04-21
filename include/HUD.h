@@ -51,7 +51,7 @@ namespace IrrGame
 		 * @param position  The position to display the text at (x and y between 1-100).
 		 * @return 			The ID of the element being inserted. Store this for later use in order to update the element.
 		 */	
-		int AddElement(std::wstring text, std::wstring data, vector2di position, int font, SColor color);
+		u32 AddElement(std::wstring text, std::wstring data, vector2di position, u32 font, SColor color);
 		
 		/** Add a HUD element with only text. */
 		/**
@@ -59,27 +59,27 @@ namespace IrrGame
 		 * @param position  The position to display the text at (x and y between 1-100).
 		 * @return 			The ID of the element being inserted. Store this for later use in order to update the element.
 		 */	
-		int AddElement(std::wstring text, vector2di position, int font, SColor color);
+		u32 AddElement(std::wstring text, vector2di position, u32 font, SColor color);
 		
 		/** Update an element in the HUD with new data. */
 		/**
 		 * @param elementID ID of the element.
 		 * @param newData	The new data to display for this element.
 		 */
-		void UpdateElement(int elementID, std::wstring newData);
+		void UpdateElement(u32 elementID, std::wstring newData);
 		
 		/** Adds a font to the HUD. */
 		/**
 		 * @param path Path of the font XML file and all image files.
 		 * @return 	   Returns the ID of the font.
 		 */
-		int AddFont(std::string path);
+		u32 AddFont(std::string path);
 
 		/** Returns font contained within the given ID. */
 		/**
 		 * @param id The ID of the font.
 		 */
-		IGUIFont* GetFont(int id) const;
+		IGUIFont* GetFont(u32 id) const;
 
 	private:
 		/** Class that represents a HUD element. */
@@ -105,8 +105,8 @@ namespace IrrGame
 		std::vector<IGUIFont*> fonts; 		/*!< Small font used by the HUD. */
 		
 		IGUIEnvironment* iGUIEnv;			/*!< The GUI environment from the Irrlicht device used by this HUD. */
-		int cfgWidth;						/*!< The window width of the HUD. */
-		int cfgHeight;						/*!< The window width of the HUD. */
+		u32 cfgWidth;						/*!< The window width of the HUD. */
+		u32 cfgHeight;						/*!< The window width of the HUD. */
 		std::vector<HUDElement> elements;	/*!< The list of elements in the HUD. */
 	};
 }

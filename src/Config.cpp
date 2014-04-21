@@ -38,7 +38,7 @@ namespace IrrGame
         return windowCaption;
     }
 
-    void Config::SetWindowBounds(int width, int height)
+    void Config::SetWindowBounds(u32 width, u32 height)
     {
         windowBounds.width = width;
         windowBounds.height = height;
@@ -83,7 +83,7 @@ namespace IrrGame
 
     }
 
-    void Config::WriteParam(const int& param)
+    void Config::WriteParam(const u32& param)
     {
         WriteParam(std::to_string(param));
     }

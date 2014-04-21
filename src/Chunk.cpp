@@ -17,7 +17,7 @@ namespace IrrGame
 		width = height = depth = 0;
 	}
 		
-	Chunk::Chunk(const int& width, const int& height, const int& depth, const float& voxelScale)
+	Chunk::Chunk(const u32& width, const u32& height, const u32& depth, const f32& voxelScale)
 	{
 		this->width = width;
 		this->height = height;
@@ -36,7 +36,7 @@ namespace IrrGame
 		return render;
 	}
 		
-	float Chunk::VoxelScale() const
+	f32 Chunk::VoxelScale() const
 	{
 		return voxelScale;
 	}
@@ -72,7 +72,7 @@ namespace IrrGame
 		this->voxelScale = param.voxelScale;
 	}
 	
-	Voxel* Chunk::operator()(const int& x, const int& y, const int& z)
+	Voxel* Chunk::operator()(const u32& x, const u32& y, const u32& z)
 	{
 		return voxels(x, y, z);
 	}

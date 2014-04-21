@@ -30,18 +30,18 @@ namespace IrrGame
 		iGUIEnv = guiEnv;
 	}
 	
-	int HUD::AddFont(std::string path)
+	u32 HUD::AddFont(std::string path)
 	{
 		fonts.push_back(iGUIEnv->getFont(path.c_str()));
 		return fonts.size() - 1;	
 	}
 		
-	IGUIFont* HUD::GetFont(int id) const
+	IGUIFont* HUD::GetFont(u32 id) const
 	{
 		return fonts.at(id);
 	}
 		
-	void HUD::UpdateElement(int elementID, std::wstring newData)
+	void HUD::UpdateElement(u32 elementID, std::wstring newData)
 	{
 		elements.at(elementID).data = newData;
 	}
@@ -60,16 +60,16 @@ namespace IrrGame
 		}
 	}
 	
-	int HUD::AddElement(std::wstring text, std::wstring data, vector2di position, int font, SColor color)
+	u32 HUD::AddElement(std::wstring text, std::wstring data, vector2di position, u32 font, SColor color)
 	{
 		if(font < 0 && font > fonts.size())
 			Log("Invalid font ID passed into HUD.");
 	
-		elements.push_back(HUDElement(text, data, vector2di(clamp<int>(position.X, 0, 100), clamp<int>(position.Y, 0, 100)), GetFont(font), color));
+		elements.push_back(HUDElement(text, data, vector2di(clamp<u32>(position.X, 0, 100), clamp<u32>(position.Y, 0, 100)), GetFont(font), color));
 		return elements.size()-1;
 	}
 	
-	int HUD::AddElement(std::wstring text, vector2di position, int font, SColor color)
+	u32 HUD::AddElement(std::wstring text, vector2di position, u32 font, SColor color)
 	{
 		return AddElement(text, L"", position, font, color); // Add element with blank data
 	}

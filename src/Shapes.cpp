@@ -8,7 +8,7 @@
 
 namespace IrrGame
 {
-    Rectangle::Rectangle(int x, int y, int width, int height)
+    Rectangle::Rectangle(u32 x, u32 y, u32 width, u32 height)
     {
         this->x = x;
         this->y = y;
@@ -16,12 +16,12 @@ namespace IrrGame
         this->height = height;
     }
 
-    int Rectangle::Area() const
+    u32 Rectangle::Area() const
     {
         return width*height;
     }
 
-    Cube::Cube(int x, int y, int z, int width, int height, int depth)
+    Cube::Cube(u32 x, u32 y, u32 z, u32 width, u32 height, u32 depth)
     {
         this->x = x;
         this->y = y;
@@ -32,7 +32,7 @@ namespace IrrGame
         this->depth = depth;
     }
 
-    int Cube::Area() const
+    u32 Cube::Area() const
     {
         return width*height*depth;
     }

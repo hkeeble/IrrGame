@@ -17,14 +17,14 @@ namespace IrrGame
 	{
 	public:
 		ChunkManager();
-		ChunkManager(const int& width, const int& height, const int& depth);
+		ChunkManager(const u32& width, const u32& height, const u32& depth);
 		ChunkManager(const ChunkManager& param);
 		const ChunkManager& operator=(const ChunkManager& param);
 		Chunk* operator() 
 		virtual ~ChunkManager();
 		
 	private:
-		int width, height, depth;
+		u32 width, height, depth;
 	};
 }
 

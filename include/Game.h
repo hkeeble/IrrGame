@@ -15,6 +15,7 @@
 #include "Voxel.h"
 #include "IO.h"
 #include "DebugHUD.h"
+#include "GameTime.h"
 
 // Irrilicht namespace and subnamespaces
 using namespace irr;
@@ -73,22 +74,27 @@ namespace IrrGame
 			/** Retrieve the version of IrrGame being used by this game object. */
 			std::wstring GetIrrGameVersion() const;
 
-			/** Sets the FPS to use. */
-			void SetFPS(const int& fps);
-
         private:
+			// ----- PRIVATE FUNCTIONS-----
+
 			/** Initialize Irrlicht. */
 			void InitIrrlicht();
 
-			GameState state;				/*!< The current game state. */
-			IrrEventHandler eventHandler;	/*!< The game event handler. */
-			InputState* inputState;			/*!< The current input state. */
-            World world;					/*!< The game world currently loaded. */
-            
-			bool drawDebugHUD;				/*!< Whether or not the debug HUD is to be rendered. */
+			/** Calculate the current frame rate. */
+			void CalculateFrameRate();
 
-			const int DEFAULT_FPS = 60;		/*!< The default FPS is none is specified. */
-			int targetFPS;					/*!< The target frames per second used by the game. */
+			// ----- PRIVATE MEMBERS -----
+
+			GameState state;				/*!< The current game state. */
+			InputState* inputState;			/*!< The current input state. */
+			IrrEventHandler eventHandler;	/*!< The game event handler. */
+            World world;					/*!< The game world currently loaded. */
+			GameTime* gameTime;				/*!< Contains a snapshot of the current state of game time. */
+
+			bool drawDebugHUD; /*!< Whether or not the debug HUD is to be rendered. */
+
+			f32 timeStep = 60/1000; /*!< The current fixed time step used by the update loop. */
+			f32 timeSinceUpdate;	/*!< The time since the last call to update. */
 
 			const std::wstring IRRGAME_MAJOR_VER = L"0"; /*!< The current major version of IrrGame being used. */
 			const std::wstring IRRGAME_MINOR_VER = L"1"; /*!< The current minor version of IrrGame being used. */

@@ -8,7 +8,7 @@ using namespace IrrGame;
 #endif // WIN32
 #endif // NDEBUG
 
-int main()
+u32 main()
 {
     Game game = Game();
     game.Run();

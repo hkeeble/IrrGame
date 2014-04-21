@@ -23,6 +23,7 @@
     <ClInclude Include="..\include\Shapes.h" />
     <ClInclude Include="..\include\stringext.h" />
     <ClInclude Include="..\include\TArray3D.h" />
+    <ClInclude Include="..\include\Timer.h" />
     <ClInclude Include="..\include\uncopyable.h" />
     <ClInclude Include="..\include\Voxel.h" />
     <ClInclude Include="..\include\VoxelType.h" />
@@ -40,6 +41,7 @@
     <ClCompile Include="..\src\Log.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Shapes.cpp" />
+    <ClCompile Include="..\src\Timer.cpp" />
     <ClCompile Include="..\src\Voxel.cpp" />
     <ClCompile Include="..\src\World.cpp" />
   </ItemGroup>

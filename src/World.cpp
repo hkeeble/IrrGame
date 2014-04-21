@@ -26,7 +26,7 @@ namespace IrrGame
 		// Class does not currently manage any resources.
     }
 
-    World::World(ISceneManager* scene, IVideoDriver* driver, int width, int height, int depth, const vector3df& up)
+    World::World(ISceneManager* scene, IVideoDriver* driver, u32 width, u32 height, u32 depth, const vector3df& up)
     {
         this->scene = scene;
         this->driver = driver;

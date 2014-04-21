@@ -25,7 +25,7 @@ namespace IrrGame
             const Rectangle& WindowBounds() const;
             const std::wstring& WindowCaption() const;
 
-            void SetWindowBounds(int width, int height);
+            void SetWindowBounds(u32 width, u32 height);
             void SetWindowCaption(const std::wstring& caption);
 
         private:
@@ -36,7 +36,7 @@ namespace IrrGame
 
             std::string ReadParam(const std::string& param);
             void WriteParam(const std::string& param);
-            void WriteParam(const int& param);
+            void WriteParam(const u32& param);
 
             // Paramaters
 			const std::string CAPTION	= "caption";

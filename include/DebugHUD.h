@@ -19,17 +19,18 @@ namespace IrrGame
 			DebugHUD(const Config& cfg, IGUIEnvironment* guiEnv) : HUD(cfg, guiEnv) { }
 		
 			void Init();
-			void Update(const Config& config, const int& fps);
+			void Update(const Config& config, const u32& fps, const double& elapsedTime);
 		private:
 			/* Font IDs */
-			int smallFont;
-			int mediumFont;
-			int largeFont;
+			u32 smallFont;
+			u32 mediumFont;
+			u32 largeFont;
 			
 			/* Element IDs */
-			int title;
-			int version;
-			int fps;
+			u32 title;
+			u32 version;
+			u32 fps;
+			u32 timer;
 	};
 }
 

@@ -16,13 +16,13 @@ namespace IrrGame
 	{
 	public:
 		TArray3D();
-		TArray3D(const int& width, const int& height, const int& depth);
+		TArray3D(const u32& width, const u32& height, const u32& depth);
 		TArray3D(const TArray3D& param);
 		const TArray3D& operator=(const TArray3D& param);
-		T* operator()(const int& x, const int& y, const int& z);
+		T* operator()(const u32& x, const u32& y, const u32& z);
 		virtual ~TArray3D();
 	private:
-		int width, height, depth;
+		u32 width, height, depth;
 		T*** array;
 		
 		/** Allocates memory for the data. */
@@ -45,7 +45,7 @@ namespace IrrGame
 	}
 	
 	template<class T>
-	TArray3D<T>::TArray3D(const int& width, const int& height, const int& depth)
+	TArray3D<T>::TArray3D(const u32& width, const u32& height, const u32& depth)
 	{
 		this->width = width;
 		this->height = height;
@@ -83,7 +83,7 @@ namespace IrrGame
 	}
 	
 	template<class T>
-	T* TArray3D<T>::operator()(const int& x, const int& y, const int& z)
+	T* TArray3D<T>::operator()(const u32& x, const u32& y, const u32& z)
 	{
 		return &array[x][y][z];
 	}
@@ -98,10 +98,10 @@ namespace IrrGame
 	void TArray3D<T>::Allocate()
 	{
 		array = new T**[width];
-		for(int x = 0; x < width; x++)
+		for(u32 x = 0; x < width; x++)
 		{
 			array[x] = new T*[height];
-			for(int y = 0; y < height; y++)
+			for(u32 y = 0; y < height; y++)
 				array[x][y] = new T[depth];
 		}
 	}
@@ -111,9 +111,9 @@ namespace IrrGame
 	{
 		if(array)
 		{
-			for(int x = 0; x < width; x++)
+			for(u32 x = 0; x < width; x++)
 			{
-				for(int y = 0; y < height; y++)
+				for(u32 y = 0; y < height; y++)
 					delete [] array[x][y];
 				
 				delete [] array[x];
@@ -126,13 +126,13 @@ namespace IrrGame
 	template<class T>
 	void TArray3D<T>::Copy(const TArray3D& param)
 	{
-		for(int x = 0; x < width; x++)
+		for(u32 x = 0; x < width; x++)
 		{
 			array[x][0][0] = param.array[x][0][0];
-			for(int y = 0; y < height; y++)
+			for(u32 y = 0; y < height; y++)
 			{
 				array[x][y][0] = param.array[x][y][0];
-				for(int z = 0; z < depth; z++)
+				for(u32 z = 0; z < depth; z++)
 					array[x][y][z] = param.array[x][y][z];
 			}
 		}

@@ -17,8 +17,9 @@ namespace IrrGame
 	/** Represents the state of a key. */
 	enum class KeyState
 	{
-		Up,		/*!< Key is up. */
-		Down	/*!< Key is down. */
+		Pressed, /*! Key has just been pressed.*/
+		Up,		 /*!< Key is up. */
+		Down	 /*!< Key is down. */
 	};
 
 	/** Represents the current state of the keyboard. */
@@ -30,6 +31,7 @@ namespace IrrGame
 		KeyboardState();
 		virtual ~KeyboardState();
 		KeyState keyStates[KEY_KEY_CODES_COUNT];
+		std::vector<EKEY_CODE> pressedKeys;
 	};
 
 	/** Represents the current state of the mouse. */
@@ -50,13 +52,19 @@ namespace IrrGame
 		virtual ~InputState();
 
 		/** Is the given key currently down? */
-		virtual bool IsKeyDown(EKEY_CODE keyCode) const;
+		bool IsKeyDown(EKEY_CODE keyCode) const;
 		
 		/** Is the given key currently up? */
-		virtual bool IsKeyUp(EKEY_CODE keyCode) const;
+		bool IsKeyUp(EKEY_CODE keyCode) const;
+
+		/** Has the given key just been pressed? */
+		bool IsKeyPressed(EKEY_CODE keyCode) const;
 
 		/** Sets the state of the given key. */
 		void SetKey(EKEY_CODE key, KeyState state);
+
+		/** Updates the input state. Any pressed buttons are set to down. Placed at the end of a call to update. */
+		void Update();
 
 	private:
 		KeyboardState keyboardState;

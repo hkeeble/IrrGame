@@ -31,7 +31,7 @@ namespace IrrGame
                 @param driver 	The video driver used by the world.
                 @param up		The up vector used by the world.
              */
-            World(ISceneManager* scene, IVideoDriver* driver, int width, int height, int depth, const vector3df& up = vector3df(0, 1, 0));
+            World(ISceneManager* scene, IVideoDriver* driver, u32 width, u32 height, u32 depth, const vector3df& up = vector3df(0, 1, 0));
 
 			/*! Creates and adds an animated mesh node from a mesh and texture. */
 			/**

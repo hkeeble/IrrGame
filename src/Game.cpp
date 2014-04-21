@@ -8,15 +8,15 @@
 
 namespace IrrGame
 {
-    Game::Game()
-    {
+	Game::Game()
+	{
 		InitIrrlicht();
 		state = READY;
-    }
+	}
 
 	void Game::InitIrrlicht()
-    {
-        Log("Initializing IrrGame Object...");
+	{
+		Log("Initializing IrrGame Object...");
 
 		// Initialize the input handler
 		eventHandler = IrrEventHandler();
@@ -26,38 +26,39 @@ namespace IrrGame
 		eventHandler.RegisterInputState(inputState);
 
 		// Create an Irrlicht device, with window bounds, and pass a reference to the event handler.
-        iDevice = createDevice( video::EDT_OPENGL, dimension2d<u32>(cfg.WindowBounds().width, cfg.WindowBounds().height), 16,
-			false, false, false, &eventHandler);
+		iDevice = createDevice(video::EDT_OPENGL, dimension2d<u32>(cfg.WindowBounds().width, cfg.WindowBounds().height), 16,
+			false, false, true, &eventHandler);
 
 		// Handle any errors creating the Irrlicht device.
-        if(iDevice == nullptr)
-        {
-            Log("Error initializing irrlicht device!");
-            SetState(ERR_STATE);
-        }
+		if (iDevice == nullptr)
+		{
+			Log("Error initializing irrlicht device!");
+			SetState(ERR_STATE);
+		}
+
+		// Initialize timer
+		gameTime = new GameTime(iDevice->getTimer());
+
+		// Initialize time since last update
+		timeSinceUpdate = 0;
 
 		// Set the window caption using the current configuration.
 		std::wstring caption = L"IrrGame " + GetIrrGameVersion() + L"   :   " + cfg.WindowCaption();
 		iDevice->setWindowCaption((wchar_t*)caption.c_str());
 
-        // Obtain pointers to useful objects
-        iVideoDriver = iDevice->getVideoDriver();
-        iGUIEnv = iDevice->getGUIEnvironment();
+		// Obtain pointers to useful objects
+		iVideoDriver = iDevice->getVideoDriver();
+		iGUIEnv = iDevice->getGUIEnvironment();
 
-        // Initialize the game world
-        world = World(iDevice->getSceneManager(), iVideoDriver, 10, 10, 10);
-        
-        // Remove cursor
-        iDevice->getCursorControl()->setVisible(false);
-        
+		// Initialize the game world
+		world = World(iDevice->getSceneManager(), iVideoDriver, 10, 10, 10);
+
+		// Remove cursor
+		iDevice->getCursorControl()->setVisible(false);
+
 		// Initlialize the debug HUD.
-        dbgHUD = DebugHUD(cfg, iGUIEnv);
-        dbgHUD.Init();
-    }
-
-	void Game::SetFPS(const int& fps)
-	{
-		targetFPS = fps;
+		dbgHUD = DebugHUD(cfg, iGUIEnv);
+		dbgHUD.Init();
 	}
 
 	std::wstring Game::GetIrrGameVersion() const
@@ -85,9 +86,19 @@ namespace IrrGame
 			if (!iDevice->run())
 				errFatal("Irrlicht device failed unexpectedly.");
 
-			Update(); // Update the game logic
-			
+			gameTime->Update(); // Update game time
+
+			timeSinceUpdate += gameTime->DeltaTime();
+
+			if (timeSinceUpdate >= timeStep)
+			{
+				Update(); // Update the game logic
+				timeSinceUpdate = 0;
+			}
+
 			Render(); // Render the game world
+
+			inputState->Update(); // Update the input state
         }
 
         if(state == ERR_STATE)
@@ -100,12 +111,15 @@ namespace IrrGame
 
 	void Game::Update()
 	{
-		if (inputState->IsKeyDown(KEY_ESCAPE))
+		if (inputState->IsKeyPressed(KEY_ESCAPE))
 			state = EXIT;
 
 #ifdef _DEBUG
-		if (inputState->IsKeyDown(KEY_TAB))
+		if (inputState->IsKeyPressed(KEY_TAB))
+		{
 			drawDebugHUD = !drawDebugHUD;
+			Log("Toggle HUD");
+		}
 #endif // _DEBUG
 	}
 
@@ -119,7 +133,7 @@ namespace IrrGame
 #ifdef _DEBUG
 		if (drawDebugHUD)
 		{
-			dbgHUD.Update(cfg, 0);
+			dbgHUD.Update(cfg, 0, gameTime->ElapsedTime()/1000);
 			dbgHUD.Render();
 		}
 #endif // _DEBUG
@@ -141,6 +155,8 @@ namespace IrrGame
     Game::~Game()
     {
  		if(iDevice)
- 			FreeIDevice();   
+ 			FreeIDevice();
+		if (gameTime)
+			delete gameTime;
     }
 }
