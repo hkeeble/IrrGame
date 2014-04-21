@@ -13,11 +13,13 @@
   <ItemGroup>
     <ClInclude Include="..\include\Config.h" />
     <ClInclude Include="..\include\DebugHUD.h" />
+    <ClInclude Include="..\include\GameComponent.h" />
     <ClInclude Include="..\include\GameTime.h" />
     <ClInclude Include="..\include\HUD.h" />
     <ClInclude Include="..\include\Game.h" />
     <ClInclude Include="..\include\IrrEventHandler.h" />
     <ClInclude Include="..\include\IO.h" />
+    <ClInclude Include="..\include\MyGame.h" />
     <ClInclude Include="..\include\Shapes.h" />
     <ClInclude Include="..\include\stringext.h" />
     <ClInclude Include="..\include\TArray3D.h" />
@@ -26,9 +28,10 @@
     <ClInclude Include="..\include\World.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\include\GameTime.cpp" />
+    <ClCompile Include="..\include\MyGame.cpp" />
     <ClCompile Include="..\src\Config.cpp" />
     <ClCompile Include="..\src\DebugHUD.cpp" />
+    <ClCompile Include="..\src\GameTime.cpp" />
     <ClCompile Include="..\src\HUD.cpp" />
     <ClCompile Include="..\src\FileStream.cpp" />
     <ClCompile Include="..\src\Game.cpp" />

@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>IrrGame</b></li><li class="navelem"><a class="el" href="classIrrGame_1_1FileStream.html">FileStream</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceIrrGame.html">IrrGame</a></li><li class="navelem"><a class="el" href="classIrrGame_1_1FileStream.html">FileStream</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -93,11 +94,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">IrrGame::FileStream Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="IO_8h_source.html">IO.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a38739c6ea72c7ea9217ee909cea31737"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38739c6ea72c7ea9217ee909cea31737"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FileStream</b> (const std::string &amp;filePath)</td></tr>
+<tr class="memitem:a38739c6ea72c7ea9217ee909cea31737"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a38739c6ea72c7ea9217ee909cea31737">FileStream</a> (const std::string &amp;filePath)</td></tr>
 <tr class="separator:a38739c6ea72c7ea9217ee909cea31737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5df3ee5caaf6d2f178d036b4037ef62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5df3ee5caaf6d2f178d036b4037ef62"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>FileStream</b> (const <a class="el" href="classIrrGame_1_1FileStream.html">FileStream</a> &amp;param)</td></tr>
@@ -105,44 +107,243 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acbfcf8a856c0e25fd17a5ea8b726332d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acbfcf8a856c0e25fd17a5ea8b726332d"></a>
 const <a class="el" href="classIrrGame_1_1FileStream.html">FileStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classIrrGame_1_1FileStream.html">FileStream</a> &amp;param)</td></tr>
 <tr class="separator:acbfcf8a856c0e25fd17a5ea8b726332d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc04750c58abc2f67cb551cd567740ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc04750c58abc2f67cb551cd567740ca"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ReadLine</b> ()</td></tr>
+<tr class="memitem:abc04750c58abc2f67cb551cd567740ca"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#abc04750c58abc2f67cb551cd567740ca">ReadLine</a> ()</td></tr>
 <tr class="separator:abc04750c58abc2f67cb551cd567740ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a403a5dfc156f6866bb2eb3a7eec9c9f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a403a5dfc156f6866bb2eb3a7eec9c9f0"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>ReadChar</b> ()</td></tr>
+<tr class="memitem:a403a5dfc156f6866bb2eb3a7eec9c9f0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a403a5dfc156f6866bb2eb3a7eec9c9f0">ReadChar</a> ()</td></tr>
 <tr class="separator:a403a5dfc156f6866bb2eb3a7eec9c9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31e988a04b7d9c9895ef5807f27ad1eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31e988a04b7d9c9895ef5807f27ad1eb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>WriteLine</b> (const std::string &amp;line)</td></tr>
+<tr class="memitem:a31e988a04b7d9c9895ef5807f27ad1eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a31e988a04b7d9c9895ef5807f27ad1eb">WriteLine</a> (const std::string &amp;line)</td></tr>
 <tr class="separator:a31e988a04b7d9c9895ef5807f27ad1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b65ff555bdad7ee74c5b1c2935df1f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b65ff555bdad7ee74c5b1c2935df1f6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Write</b> (const std::string &amp;data)</td></tr>
+<tr class="memitem:a3b65ff555bdad7ee74c5b1c2935df1f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a3b65ff555bdad7ee74c5b1c2935df1f6">Write</a> (const std::string &amp;data)</td></tr>
 <tr class="separator:a3b65ff555bdad7ee74c5b1c2935df1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa03671834de94c26d8b1b7ad833ec089"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa03671834de94c26d8b1b7ad833ec089"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>WriteChar</b> (const char &amp;data)</td></tr>
+<tr class="memitem:aa03671834de94c26d8b1b7ad833ec089"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#aa03671834de94c26d8b1b7ad833ec089">WriteChar</a> (const char &amp;data)</td></tr>
 <tr class="separator:aa03671834de94c26d8b1b7ad833ec089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4043d3f780e33f74fd39adc7c3bffd4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4043d3f780e33f74fd39adc7c3bffd4a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Open</b> ()</td></tr>
+<tr class="memitem:a4043d3f780e33f74fd39adc7c3bffd4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a4043d3f780e33f74fd39adc7c3bffd4a">Open</a> ()</td></tr>
 <tr class="separator:a4043d3f780e33f74fd39adc7c3bffd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a837ae63a6ce0d26f4b3184e5ae488f99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a837ae63a6ce0d26f4b3184e5ae488f99"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Close</b> ()</td></tr>
+<tr class="memitem:a837ae63a6ce0d26f4b3184e5ae488f99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a837ae63a6ce0d26f4b3184e5ae488f99">Close</a> ()</td></tr>
 <tr class="separator:a837ae63a6ce0d26f4b3184e5ae488f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a953d1b451036b431c4bf30053d065c1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a953d1b451036b431c4bf30053d065c1a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsOpen</b> () const </td></tr>
+<tr class="memitem:a953d1b451036b431c4bf30053d065c1a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a953d1b451036b431c4bf30053d065c1a">IsOpen</a> () const </td></tr>
 <tr class="separator:a953d1b451036b431c4bf30053d065c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59dc75726e89fdf929f17adc172b7e7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59dc75726e89fdf929f17adc172b7e7b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>EndOfFile</b> () const </td></tr>
+<tr class="memitem:a59dc75726e89fdf929f17adc172b7e7b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a59dc75726e89fdf929f17adc172b7e7b">EndOfFile</a> () const </td></tr>
 <tr class="separator:a59dc75726e89fdf929f17adc172b7e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94cc089ee7cb55cfc7b4fbe3c43d3684"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94cc089ee7cb55cfc7b4fbe3c43d3684"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Seek</b> (std::string data)</td></tr>
+<tr class="memitem:a94cc089ee7cb55cfc7b4fbe3c43d3684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a94cc089ee7cb55cfc7b4fbe3c43d3684">Seek</a> (std::string data)</td></tr>
 <tr class="separator:a94cc089ee7cb55cfc7b4fbe3c43d3684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f00967548f7503127eeb732fc7ea02e"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1FileStream.html#a0f00967548f7503127eeb732fc7ea02e">GetPath</a> () const </td></tr>
+<tr class="separator:a0f00967548f7503127eeb732fc7ea02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a file stream. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a38739c6ea72c7ea9217ee909cea31737"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IrrGame::FileStream::FileStream </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Construct a new filestream with the given path. Does not open the stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td>The path of the file with which to use in the stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a837ae63a6ce0d26f4b3184e5ae488f99"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IrrGame::FileStream::Close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the file stream. </p>
+
+</div>
+</div>
+<a class="anchor" id="a59dc75726e89fdf929f17adc172b7e7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IrrGame::FileStream::EndOfFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns whether or not the stream buffer is at the end of the file. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0f00967548f7503127eeb732fc7ea02e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string&amp; IrrGame::FileStream::GetPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the path of the file stream. </p>
+
+</div>
+</div>
+<a class="anchor" id="a953d1b451036b431c4bf30053d065c1a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IrrGame::FileStream::IsOpen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns whether or not the file is open. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4043d3f780e33f74fd39adc7c3bffd4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IrrGame::FileStream::Open </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open the file stream with the current file path. </p>
+
+</div>
+</div>
+<a class="anchor" id="a403a5dfc156f6866bb2eb3a7eec9c9f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char IrrGame::FileStream::ReadChar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read the next character from the file. </p>
+
+</div>
+</div>
+<a class="anchor" id="abc04750c58abc2f67cb551cd567740ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string IrrGame::FileStream::ReadLine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read the next line from the file. </p>
+
+</div>
+</div>
+<a class="anchor" id="a94cc089ee7cb55cfc7b4fbe3c43d3684"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IrrGame::FileStream::Seek </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Seek to the given data in the file. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3b65ff555bdad7ee74c5b1c2935df1f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IrrGame::FileStream::Write </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write a string to the file. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa03671834de94c26d8b1b7ad833ec089"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IrrGame::FileStream::WriteChar </td>
+          <td>(</td>
+          <td class="paramtype">const char &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write a character to the file. </p>
+
+</div>
+</div>
+<a class="anchor" id="a31e988a04b7d9c9895ef5807f27ad1eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IrrGame::FileStream::WriteLine </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write a line to the file. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="FileStream_8h_source.html">FileStream.h</a></li>
+<li>include/<a class="el" href="IO_8h_source.html">IO.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 15 2014 23:26:47 for IrrGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 21 2014 01:39:32 for IrrGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

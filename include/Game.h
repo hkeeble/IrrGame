@@ -15,6 +15,7 @@
 #include "IO.h"
 #include "DebugHUD.h"
 #include "GameTime.h"
+#include "GameComponent.h"
 
 // Irrilicht namespace and subnamespaces
 using namespace irr;
@@ -64,6 +65,9 @@ namespace IrrGame
 			/** Frees the Irrlicht device. */
 			void FreeIDevice();
 
+			/** Override in base class. Called just before entering main game loop. Used for game specific initialization. */
+			virtual void Initialize();
+
 			/** Override in base class. */
 			virtual void Update();
 
@@ -73,22 +77,26 @@ namespace IrrGame
 			/** Retrieve the version of IrrGame being used by this game object. */
 			std::wstring GetIrrGameVersion() const;
 
+			/** Add a component to the list of game components. */
+			void AddGameComponent(GameComponent* component);
+
         private:
 			// ----- PRIVATE FUNCTIONS-----
 
-			/** Initialize Irrlicht. */
-			void InitIrrlicht();
+			/** Internal initialization. */
+			void Init();
 
 			/** Calculate the current frame rate. */
 			void CalculateFrameRate();
 
 			// ----- PRIVATE MEMBERS -----
 
-			GameState state;				/*!< The current game state. */
-			InputState* inputState;			/*!< The current input state. */
-			IrrEventHandler eventHandler;	/*!< The game event handler. */
-            World world;					/*!< The game world currently loaded. */
-			GameTime* gameTime;				/*!< Contains a snapshot of the current state of game time. */
+			GameState state;						/*!< The current game state. */
+			std::vector<GameComponent*>	components;	/*!< Collection of game components. */
+			InputState* inputState;					/*!< The current input state. */
+			IrrEventHandler eventHandler;			/*!< The game event handler. */
+            World world;							/*!< The game world currently loaded. */
+			GameTime* gameTime;						/*!< Contains a snapshot of the current state of game time. */
 
 			bool drawDebugHUD; /*!< Whether or not the debug HUD is to be rendered. */
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rectangle',['Rectangle',['../structIrrGame_1_1Rectangle.html',1,'IrrGame']]]
+  ['hud',['HUD',['../classIrrGame_1_1HUD.html',1,'IrrGame']]]
 ];

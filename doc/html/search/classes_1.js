@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['filestream',['FileStream',['../classIrrGame_1_1FileStream.html',1,'IrrGame']]]
+  ['debughud',['DebugHUD',['../classIrrGame_1_1DebugHUD.html',1,'IrrGame']]]
 ];

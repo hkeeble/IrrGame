@@ -1,4 +1,4 @@
-#include "Game.h"
+#include "MyGame.h"
 
 using namespace IrrGame;
 
@@ -10,6 +10,6 @@ using namespace IrrGame;
 
 u32 main()
 {
-    Game game = Game();
+	MyGame game = MyGame();
     game.Run();
 }

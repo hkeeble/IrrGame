@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">Game.h File Reference</div>  </div>
@@ -96,10 +97,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;irrlicht.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="Config_8h_source.html">Config.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="Log_8h_source.html">Log.h</a>&quot;</code><br/>
-<code>#include &quot;InputHandler.h&quot;</code><br/>
+<code>#include &quot;IrrEventHandler.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="World_8h_source.html">World.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="Voxel_8h_source.html">Voxel.h</a>&quot;</code><br/>
+<code>#include &quot;IO.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="DebugHUD_8h_source.html">DebugHUD.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="GameTime_8h_source.html">GameTime.h</a>&quot;</code><br/>
 </div>
 <p><a href="Game_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -108,21 +110,17 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIrrGame_1_1Game.html">IrrGame::Game</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:abd8a03308ac651fdbe7bbd3b7e363dd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd8a03308ac651fdbe7bbd3b7e363dd3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>IRRGAME_MAJOR_VER</b>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:abd8a03308ac651fdbe7bbd3b7e363dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2794011defd4a2be809ba16f010c5872"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2794011defd4a2be809ba16f010c5872"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>IRRGAME_MINOR_VER</b>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a2794011defd4a2be809ba16f010c5872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceIrrGame"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceIrrGame.html">IrrGame</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:afb6a2153afcdd0094369f1354c3d6809"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>GameState</b> { <b>READY</b>, 
-<b>RUNNING</b>, 
-<b>ERR_STATE</b>, 
-<b>EXIT</b>
+<tr class="memitem:afb6a2153afcdd0094369f1354c3d6809"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809">IrrGame::GameState</a> { <a class="el" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809a92f031dc97baba817efeb06d6c093f58">IrrGame::READY</a>, 
+<a class="el" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809a8cb1cf2e6e744e0a3c8bc3f83f75f78b">IrrGame::RUNNING</a>, 
+<a class="el" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809aff30130ab20dba1945427b7dd9e74469">IrrGame::ERR_STATE</a>, 
+<a class="el" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809abc4de6844e2bd1b156749c1019e1cc33">IrrGame::EXIT</a>
  }</td></tr>
 <tr class="separator:afb6a2153afcdd0094369f1354c3d6809"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -132,7 +130,7 @@ Enumerations</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 15 2014 23:26:47 for IrrGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 21 2014 01:39:32 for IrrGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

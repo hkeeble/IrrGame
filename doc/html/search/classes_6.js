@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uncopyable',['Uncopyable',['../classIrrGame_1_1Uncopyable.html',1,'IrrGame']]]
+  ['keyboardstate',['KeyboardState',['../classIrrGame_1_1KeyboardState.html',1,'IrrGame']]]
 ];

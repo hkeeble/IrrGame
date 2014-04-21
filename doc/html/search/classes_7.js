@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['voxel',['Voxel',['../classIrrGame_1_1Voxel.html',1,'IrrGame']]]
+  ['mousestate',['MouseState',['../classIrrGame_1_1MouseState.html',1,'IrrGame']]]
 ];

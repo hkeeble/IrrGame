@@ -10,11 +10,11 @@ namespace IrrGame
 {
 	Game::Game()
 	{
-		InitIrrlicht();
+		Init();
 		state = READY;
 	}
 
-	void Game::InitIrrlicht()
+	void Game::Init()
 	{
 		Log("Initializing IrrGame Object...");
 
@@ -41,6 +41,9 @@ namespace IrrGame
 
 		// Initialize time since last update
 		timeSinceUpdate = 0;
+
+		// Initialize component list
+		components = std::vector<GameComponent*>();
 
 		// Set the window caption using the current configuration.
 		std::wstring caption = L"IrrGame " + GetIrrGameVersion() + L"   :   " + cfg.WindowCaption();
@@ -80,6 +83,7 @@ namespace IrrGame
     {
         state = RUNNING;
 
+		Initialize();
         Log("Entering main game loop...");
         while(state == RUNNING)
         {
@@ -89,10 +93,9 @@ namespace IrrGame
 			gameTime->Update(); // Update game time
 
 			timeSinceUpdate += gameTime->DeltaTime();
-
 			if (timeSinceUpdate >= timeStep)
 			{
-				Update(); // Update the game logic
+				Update(); // Update the game logig
 				timeSinceUpdate = 0;
 			}
 
@@ -109,6 +112,16 @@ namespace IrrGame
         FreeIDevice();
     }
 
+	void Game::AddGameComponent(GameComponent* component)
+	{
+		components.push_back(component);
+	}
+
+	void Game::Initialize()
+	{
+		// Empty for base game
+	}
+
 	void Game::Update()
 	{
 		if (inputState->IsKeyPressed(KEY_ESCAPE))
@@ -121,6 +134,10 @@ namespace IrrGame
 			Log("Toggle HUD");
 		}
 #endif // _DEBUG
+
+		// Update game components
+		for (auto component : components)
+			component->Update();
 	}
 
 	void Game::Render()
@@ -139,6 +156,10 @@ namespace IrrGame
 #endif // _DEBUG
 
 		iVideoDriver->endScene();
+
+		// Render game components
+		for (auto component : components)
+			component->Render();
 	}
 
 	void Game::FreeIDevice()
@@ -158,5 +179,7 @@ namespace IrrGame
  			FreeIDevice();
 		if (gameTime)
 			delete gameTime;
+		for (auto& component : components)
+			delete component;
     }
 }

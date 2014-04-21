@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,71 +95,105 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;irrlicht.h&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Config_8h.html">Config.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Log_8h.html">Log.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;InputHandler.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="World_8h.html">World.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Voxel_8h.html">Voxel.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// Irrilicht namespace and subnamespaces</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>irr;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>core;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>scene;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>video;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span>io;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span>gui;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define IRRGAME_MAJOR_VER 0</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IRRGAME_MINOR_VER 1</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>IrrGame</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">enum</span> GameState</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;IrrEventHandler.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="World_8h.html">World.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;IO.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DebugHUD_8h.html">DebugHUD.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GameTime_8h.html">GameTime.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// Irrilicht namespace and subnamespaces</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>irr;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>core;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>scene;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span>video;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span>io;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span>gui;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>IrrGame</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809">   31</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809">GameState</a></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        READY,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        RUNNING,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        ERR_STATE,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        EXIT</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809a92f031dc97baba817efeb06d6c093f58">   33</a></span>&#160;        <a class="code" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809a92f031dc97baba817efeb06d6c093f58">READY</a>,      </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809a8cb1cf2e6e744e0a3c8bc3f83f75f78b">   34</a></span>&#160;        <a class="code" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809a8cb1cf2e6e744e0a3c8bc3f83f75f78b">RUNNING</a>,    </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809aff30130ab20dba1945427b7dd9e74469">   35</a></span>&#160;        <a class="code" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809aff30130ab20dba1945427b7dd9e74469">ERR_STATE</a>,  </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809abc4de6844e2bd1b156749c1019e1cc33">   36</a></span>&#160;        <a class="code" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809abc4de6844e2bd1b156749c1019e1cc33">EXIT</a>        </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classIrrGame_1_1Game.html">   39</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classIrrGame_1_1Game.html">Game</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <a class="code" href="classIrrGame_1_1Game.html">Game</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="classIrrGame_1_1Game.html">Game</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordtype">void</span> Run();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="structIrrGame_1_1Config.html">Config</a> cfg;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            IrrlichtDevice* iDevice;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            IVideoDriver* iVideoDriver;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            IGUIEnvironment* iGUIEnv;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keyword">const</span> GameState&amp; GetState() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordtype">void</span> SetState(<span class="keyword">const</span> GameState&amp; state);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordtype">void</span> errFatal(<span class="keyword">const</span> std::string msg);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordtype">void</span> FreeIDevice();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordtype">void</span> Init();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            GameState state;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="classInputHandler.html">InputHandler</a> keyboard;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="classIrrGame_1_1World.html">World</a> world; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif // IRRGAME_H</span></div>
-<div class="ttc" id="classIrrGame_1_1Game_html"><div class="ttname"><a href="classIrrGame_1_1Game.html">IrrGame::Game</a></div><div class="ttdef"><b>Definition:</b> Game.h:39</div></div>
-<div class="ttc" id="structIrrGame_1_1Config_html"><div class="ttname"><a href="structIrrGame_1_1Config.html">IrrGame::Config</a></div><div class="ttdef"><b>Definition:</b> Config.h:20</div></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classIrrGame_1_1Game.html">   40</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classIrrGame_1_1Game.html">Game</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="classIrrGame_1_1Game.html">Game</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="classIrrGame_1_1Game.html">Game</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordtype">void</span> Run();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="structIrrGame_1_1Config.html">Config</a> cfg;                 </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classIrrGame_1_1Game.html#acd46effafcbb197e01507cf58d25913a">   51</a></span>&#160;            IrrlichtDevice* <a class="code" href="classIrrGame_1_1Game.html#acd46effafcbb197e01507cf58d25913a">iDevice</a>;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classIrrGame_1_1Game.html#a7cc7a3213707175e1998c6b45e0a3dd3">   52</a></span>&#160;            IVideoDriver* <a class="code" href="classIrrGame_1_1Game.html#a7cc7a3213707175e1998c6b45e0a3dd3">iVideoDriver</a>; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classIrrGame_1_1Game.html#ab75f0fa135fd2d73618f086b5398fdf6">   53</a></span>&#160;            IGUIEnvironment* <a class="code" href="classIrrGame_1_1Game.html#ab75f0fa135fd2d73618f086b5398fdf6">iGUIEnv</a>;   </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809">GameState</a>&amp; GetState() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordtype">void</span> SetState(<span class="keyword">const</span> <a class="code" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809">GameState</a>&amp; state);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordtype">void</span> errFatal(<span class="keyword">const</span> std::string msg);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordtype">void</span> FreeIDevice();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> Update();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> Render();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::wstring GetIrrGameVersion() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="comment">// ----- PRIVATE FUNCTIONS-----</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordtype">void</span> InitIrrlicht();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">void</span> CalculateFrameRate();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="comment">// ----- PRIVATE MEMBERS -----</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <a class="code" href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809">GameState</a> state;                </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="classIrrGame_1_1InputState.html">InputState</a>* inputState;         </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <a class="code" href="classIrrGame_1_1IrrEventHandler.html">IrrEventHandler</a> eventHandler;   </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <a class="code" href="classIrrGame_1_1World.html">World</a> world;                    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <a class="code" href="classIrrGame_1_1GameTime.html">GameTime</a>* gameTime;             </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordtype">bool</span> drawDebugHUD; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            f32 timeStep = 60/1000; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            f32 timeSinceUpdate;    </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keyword">const</span> std::wstring IRRGAME_MAJOR_VER = L<span class="stringliteral">&quot;0&quot;</span>; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keyword">const</span> std::wstring IRRGAME_MINOR_VER = L<span class="stringliteral">&quot;1&quot;</span>; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#ifdef _DEBUG</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor"></span>            <a class="code" href="classIrrGame_1_1DebugHUD.html">DebugHUD</a> dbgHUD; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif // _DEBUG</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor"></span>    };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif // IRRGAME_H</span></div>
+<div class="ttc" id="classIrrGame_1_1Game_html"><div class="ttname"><a href="classIrrGame_1_1Game.html">IrrGame::Game</a></div><div class="ttdef"><b>Definition:</b> Game.h:40</div></div>
+<div class="ttc" id="GameTime_8h_html"><div class="ttname"><a href="GameTime_8h.html">GameTime.h</a></div></div>
+<div class="ttc" id="classIrrGame_1_1Game_html_a7cc7a3213707175e1998c6b45e0a3dd3"><div class="ttname"><a href="classIrrGame_1_1Game.html#a7cc7a3213707175e1998c6b45e0a3dd3">IrrGame::Game::iVideoDriver</a></div><div class="ttdeci">IVideoDriver * iVideoDriver</div><div class="ttdef"><b>Definition:</b> Game.h:52</div></div>
+<div class="ttc" id="namespaceIrrGame_html_afb6a2153afcdd0094369f1354c3d6809abc4de6844e2bd1b156749c1019e1cc33"><div class="ttname"><a href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809abc4de6844e2bd1b156749c1019e1cc33">IrrGame::EXIT</a></div><div class="ttdef"><b>Definition:</b> Game.h:36</div></div>
+<div class="ttc" id="structIrrGame_1_1Config_html"><div class="ttname"><a href="structIrrGame_1_1Config.html">IrrGame::Config</a></div><div class="ttdef"><b>Definition:</b> Config.h:18</div></div>
+<div class="ttc" id="classIrrGame_1_1DebugHUD_html"><div class="ttname"><a href="classIrrGame_1_1DebugHUD.html">IrrGame::DebugHUD</a></div><div class="ttdef"><b>Definition:</b> DebugHUD.h:15</div></div>
+<div class="ttc" id="classIrrGame_1_1InputState_html"><div class="ttname"><a href="classIrrGame_1_1InputState.html">IrrGame::InputState</a></div><div class="ttdef"><b>Definition:</b> IrrEventHandler.h:48</div></div>
+<div class="ttc" id="namespaceIrrGame_html_afb6a2153afcdd0094369f1354c3d6809a92f031dc97baba817efeb06d6c093f58"><div class="ttname"><a href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809a92f031dc97baba817efeb06d6c093f58">IrrGame::READY</a></div><div class="ttdef"><b>Definition:</b> Game.h:33</div></div>
 <div class="ttc" id="Config_8h_html"><div class="ttname"><a href="Config_8h.html">Config.h</a></div><div class="ttdoc">Declarations for a configuration structure, reads and writes configuration data. </div></div>
-<div class="ttc" id="Log_8h_html"><div class="ttname"><a href="Log_8h.html">Log.h</a></div><div class="ttdoc">Debug trace singleton. </div></div>
+<div class="ttc" id="namespaceIrrGame_html_afb6a2153afcdd0094369f1354c3d6809a8cb1cf2e6e744e0a3c8bc3f83f75f78b"><div class="ttname"><a href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809a8cb1cf2e6e744e0a3c8bc3f83f75f78b">IrrGame::RUNNING</a></div><div class="ttdef"><b>Definition:</b> Game.h:34</div></div>
 <div class="ttc" id="World_8h_html"><div class="ttname"><a href="World_8h.html">World.h</a></div><div class="ttdoc">Declarations for a class that represents the world scene node. </div></div>
-<div class="ttc" id="Voxel_8h_html"><div class="ttname"><a href="Voxel_8h.html">Voxel.h</a></div><div class="ttdoc">Declarations for a class representing an individual voxel. </div></div>
+<div class="ttc" id="namespaceIrrGame_html_afb6a2153afcdd0094369f1354c3d6809aff30130ab20dba1945427b7dd9e74469"><div class="ttname"><a href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809aff30130ab20dba1945427b7dd9e74469">IrrGame::ERR_STATE</a></div><div class="ttdef"><b>Definition:</b> Game.h:35</div></div>
+<div class="ttc" id="classIrrGame_1_1Game_html_ab75f0fa135fd2d73618f086b5398fdf6"><div class="ttname"><a href="classIrrGame_1_1Game.html#ab75f0fa135fd2d73618f086b5398fdf6">IrrGame::Game::iGUIEnv</a></div><div class="ttdeci">IGUIEnvironment * iGUIEnv</div><div class="ttdef"><b>Definition:</b> Game.h:53</div></div>
+<div class="ttc" id="classIrrGame_1_1IrrEventHandler_html"><div class="ttname"><a href="classIrrGame_1_1IrrEventHandler.html">IrrGame::IrrEventHandler</a></div><div class="ttdef"><b>Definition:</b> IrrEventHandler.h:75</div></div>
+<div class="ttc" id="namespaceIrrGame_html_afb6a2153afcdd0094369f1354c3d6809"><div class="ttname"><a href="namespaceIrrGame.html#afb6a2153afcdd0094369f1354c3d6809">IrrGame::GameState</a></div><div class="ttdeci">GameState</div><div class="ttdef"><b>Definition:</b> Game.h:31</div></div>
 <div class="ttc" id="classIrrGame_1_1World_html"><div class="ttname"><a href="classIrrGame_1_1World.html">IrrGame::World</a></div><div class="ttdef"><b>Definition:</b> World.h:23</div></div>
-<div class="ttc" id="classInputHandler_html"><div class="ttname"><a href="classInputHandler.html">InputHandler</a></div><div class="ttdef"><b>Definition:</b> InputHandler.h:14</div></div>
+<div class="ttc" id="classIrrGame_1_1GameTime_html"><div class="ttname"><a href="classIrrGame_1_1GameTime.html">IrrGame::GameTime</a></div><div class="ttdef"><b>Definition:</b> GameTime.h:20</div></div>
+<div class="ttc" id="classIrrGame_1_1Game_html_acd46effafcbb197e01507cf58d25913a"><div class="ttname"><a href="classIrrGame_1_1Game.html#acd46effafcbb197e01507cf58d25913a">IrrGame::Game::iDevice</a></div><div class="ttdeci">IrrlichtDevice * iDevice</div><div class="ttdef"><b>Definition:</b> Game.h:51</div></div>
+<div class="ttc" id="DebugHUD_8h_html"><div class="ttname"><a href="DebugHUD_8h.html">DebugHUD.h</a></div><div class="ttdoc">Declares a debugging HUD for IrrGame. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 15 2014 23:26:47 for IrrGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 21 2014 01:39:31 for IrrGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

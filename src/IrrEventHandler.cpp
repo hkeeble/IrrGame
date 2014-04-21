@@ -34,21 +34,12 @@ namespace IrrGame
 				if (event.KeyInput.PressedDown)
 				{
 					if (inputState->IsKeyUp(event.KeyInput.Key))
-					{
 						inputState->SetKey(event.KeyInput.Key, KeyState::Pressed);
-						Log("Key pressed.");
-					}
 					else
-					{
 						inputState->SetKey(event.KeyInput.Key, KeyState::Down);
-						Log("Key Down.");
-					}
 				}
 				else
-				{
 					inputState->SetKey(event.KeyInput.Key, KeyState::Up);
-					Log("Key Up");
-				}
 			}
 			else
 				Log("Error! Could not handle key press, no input state registered with event handler.");
